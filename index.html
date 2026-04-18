@@ -15,13 +15,26 @@
   box-sizing:border-box;
 }
 
-/* ================= BASE ================= */
+/* ================= FUNDO (ESTÁVEL + ILUSTRADO) ================= */
 body{
   font-family: Georgia, serif;
   color:#1C1C1C;
-  background: radial-gradient(circle at top, #FFF6E8, #F2E6D6);
   -webkit-font-smoothing: antialiased;
   padding-top:180px;
+
+  /* base quente sofisticada */
+  background-color:#F6F1EA;
+
+  /* camada ilustrada (gravura vintage suave) */
+  background-image:
+    url("https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1800&q=60");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  /* suaviza a imagem pra não competir com conteúdo */
+  background-blend-mode: overlay;
 }
 
 /* ================= HEADER ================= */
@@ -30,7 +43,7 @@ header{
   top:0;
   left:0;
   width:100%;
-  background:rgba(242,230,214,0.9);
+  background:rgba(246,241,234,0.92);
   backdrop-filter: blur(10px);
   border-bottom:1px solid rgba(0,0,0,0.08);
   z-index:999;
@@ -40,17 +53,22 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 20px;
+  padding:12px 20px;
 }
 
-/* nome central */
+/* centro (marca) */
 .brand{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
   font-size:13px;
   letter-spacing:0.25em;
   text-transform:uppercase;
+  white-space:nowrap;
+  font-family: Georgia, serif;
 }
 
-/* icons */
+/* ícones */
 .icons{
   display:flex;
   gap:14px;
@@ -86,7 +104,7 @@ h1{
   opacity:0.75;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SEÇÕES ================= */
 .section{
   max-width:900px;
   margin:0 auto;
@@ -100,14 +118,13 @@ h1{
   letter-spacing:0.2em;
   text-transform:uppercase;
   margin-bottom:25px;
-  opacity:0.75;
 }
 
 /* ================= CARD ================= */
 .card{
   border-top:1px solid rgba(0,0,0,0.1);
-  padding:20px 0;
-  transition:0.3s;
+  padding:22px 0;
+  transition:0.3s ease;
 }
 
 .card:hover{
@@ -133,7 +150,7 @@ h1{
   opacity:0.7;
 }
 
-/* ================= BUTTON ================= */
+/* ================= BOTÕES ================= */
 button{
   margin-top:10px;
   padding:8px 14px;
@@ -145,8 +162,8 @@ button{
 }
 
 button:hover{
-  opacity:0.9;
   transform:translateY(-2px);
+  opacity:0.9;
 }
 
 button.gold{
@@ -160,15 +177,16 @@ button.gold{
   left:-100%;
   width:80%;
   height:100%;
-  background:#F2E6D6;
+  background:#F6F1EA;
   z-index:1000;
   padding:40px;
   transition:0.4s ease;
   box-shadow:2px 0 25px rgba(0,0,0,0.12);
 }
 
+/* espaçamento elegante */
 .menu-item{
-  padding:12px 0;
+  padding:14px 0;
   letter-spacing:0.15em;
   text-transform:uppercase;
 }
@@ -176,6 +194,7 @@ button.gold{
 hr{
   border:0;
   border-top:1px solid rgba(0,0,0,0.08);
+  margin:6px 0;
 }
 
 </style>
@@ -185,45 +204,44 @@ hr{
 
 <!-- ================= HEADER ================= -->
 <header>
-  <div class="header-inner">
 
-    <!-- MENU -->
-    <div id="menuBtn" style="font-size:22px; cursor:pointer;">☰</div>
+<div class="header-inner">
 
-    <!-- NOME -->
-    <div class="brand">Casa Trívia</div>
+<!-- MENU -->
+<div id="menuBtn" style="font-size:22px; cursor:pointer;">☰</div>
 
-    <!-- ICONES -->
-    <div class="icons">
+<!-- NOME CENTRAL -->
+<div class="brand">Casa Trívia</div>
 
-      <!-- LUPA -->
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
-        <circle cx="11" cy="11" r="7"></circle>
-        <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
-      </svg>
+<!-- ICONES -->
+<div class="icons">
 
-      <!-- CARRINHO -->
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path>
-      </svg>
+<!-- LUPA -->
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+<circle cx="11" cy="11" r="7"></circle>
+<line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+</svg>
 
-    </div>
+<!-- CARRINHO -->
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+<circle cx="9" cy="21" r="1"></circle>
+<circle cx="20" cy="21" r="1"></circle>
+<path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path>
+</svg>
 
-  </div>
+</div>
 
-  <hr>
+</div>
 
 </header>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <h1>Casa Trívia</h1>
-  <div class="subtitle">olfactive architecture of memory</div>
-  <div class="manifesto">
-    Casa Trívia is a contemporary fragrance house devoted to silence, memory and form.
-  </div>
+<h1>Casa Trívia</h1>
+<div class="subtitle">olfactive architecture of memory</div>
+<div class="manifesto">
+Casa Trívia is a contemporary fragrance house devoted to silence, memory and form.
+</div>
 </section>
 
 <!-- ================= COLEÇÕES ================= -->
@@ -232,94 +250,44 @@ hr{
 
 <div class="card">
 <h3>White Tea & Vanilla</h3>
-<div class="notes">Soft Ritual · clean warmth</div>
+<div class="notes">Soft Ritual</div>
 <div class="price">R$ 119</div>
 <button>Adquirir</button>
 </div>
 
 <div class="card">
 <h3>Wild Verbena</h3>
-<div class="notes">Morning Air · citrus green</div>
+<div class="notes">Citrus green</div>
 <div class="price">R$ 119</div>
 <button>Adquirir</button>
 </div>
 
 <div class="card">
 <h3>Fig & Vetiver</h3>
-<div class="notes">Earth Ritual · green depth</div>
+<div class="notes">Earth depth</div>
 <div class="price">R$ 119</div>
 <button>Adquirir</button>
-</div>
-</section>
-
-<section class="section">
-<h2>Signature Collection</h2>
-
-<div class="card">
-<h3>Silent Garden</h3>
-<div class="notes">Green shadow · stillness</div>
-<div class="price">R$ 139</div>
-<button>Adquirir</button>
-</div>
-
-<div class="card">
-<h3>Orchid Dust</h3>
-<div class="notes">Soft floral · powder light</div>
-<div class="price">R$ 139</div>
-<button>Adquirir</button>
-</div>
-
-<div class="card">
-<h3>Amber Veil</h3>
-<div class="notes">Warm resin · golden dusk</div>
-<div class="price">R$ 139</div>
-<button>Adquirir</button>
-</div>
-</section>
-
-<section class="section">
-<h2>Haute Collection</h2>
-
-<div class="card">
-<h3>Black Orchid Noire</h3>
-<div class="notes">Velvet night</div>
-<div class="price">R$ 199</div>
-<button class="gold">Adquirir</button>
-</div>
-
-<div class="card">
-<h3>Smoke & Myrrh</h3>
-<div class="notes">Sacred resin</div>
-<div class="price">R$ 199</div>
-<button class="gold">Adquirir</button>
-</div>
-
-<div class="card">
-<h3>Golden Incense</h3>
-<div class="notes">Sacred gold</div>
-<div class="price">R$ 199</div>
-<button class="gold">Adquirir</button>
 </div>
 </section>
 
 <!-- ================= MENU ================= -->
 <div id="sideMenu">
 
-  <div style="display:flex; justify-content:space-between;">
-    <div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
-    <div style="font-size:12px; letter-spacing:0.2em;">Login</div>
-  </div>
+<div style="display:flex; justify-content:space-between;">
+<div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
+<div style="font-size:12px; letter-spacing:0.2em;">Login</div>
+</div>
 
-  <div style="margin-top:30px;">
+<div style="margin-top:30px;">
 
-    <div class="menu-item">Velas Aromáticas</div><hr>
-    <div class="menu-item">Home Spray</div><hr>
-    <div class="menu-item">Difusores</div><hr>
-    <div class="menu-item">Kits Presente</div><hr>
-    <div class="menu-item">Embalagens</div><hr>
-    <div class="menu-item">Sabonetes</div>
+<div class="menu-item">Velas Aromáticas</div><hr>
+<div class="menu-item">Home Spray</div><hr>
+<div class="menu-item">Difusores</div><hr>
+<div class="menu-item">Kits Presente</div><hr>
+<div class="menu-item">Embalagens</div><hr>
+<div class="menu-item">Sabonetes</div>
 
-  </div>
+</div>
 
 </div>
 
