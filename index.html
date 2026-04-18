@@ -8,7 +8,6 @@
 
 <style>
 
-/* RESET */
 *{
   margin:0;
   padding:0;
@@ -20,10 +19,9 @@ body{
   background:#F6F1EA;
   color:#1C1C1C;
   -webkit-font-smoothing: antialiased;
-  padding-top:320px;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER FIXO (CORRETO) ================= */
 header{
   position:fixed;
   top:0;
@@ -40,37 +38,36 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:14px 22px;
+  height:80px;
 }
 
-/* MENU */
+/* menu */
 #menuBtn{
   font-size:22px;
   cursor:pointer;
 }
 
-/* LOGO CENTRO (CORRETO AGORA) */
-.logo-wrapper{
+/* centro (logo NÃO absoluta mais — corrigido) */
+.logo{
   position:absolute;
   left:50%;
   transform:translateX(-50%);
-  top:40px;
-  text-align:center;
+  top:10px;
 }
 
-.logo-wrapper img{
-  height:220px;
-  width:auto;
+.logo img{
+  height:120px;
   display:block;
 }
 
-/* ÍCONES DIREITA */
+/* ícones */
 .icons{
   display:flex;
   gap:16px;
   align-items:center;
 }
 
-/* LUPA */
+/* lupa */
 .search{
   width:16px;
   height:16px;
@@ -90,13 +87,12 @@ header{
   transform:rotate(45deg);
 }
 
-/* CARRINHO CORRIGIDO */
+/* carrinho */
 .cart{
   width:18px;
   height:18px;
   border:1.5px solid #000;
   border-radius:2px;
-  position:relative;
 }
 
 /* linha */
@@ -105,30 +101,35 @@ header{
   background:rgba(0,0,0,0.08);
 }
 
+/* ================= EMPURRAR CONTEÚDO (CORRETO AGORA) ================= */
+main{
+  padding-top:160px;
+}
+
 /* ================= HERO ================= */
 .hero{
   text-align:center;
-  margin-top:-20px;
+  padding:30px 20px;
 }
 
 .hero h1{
-  font-size:64px;
+  font-size:60px;
   font-weight:400;
 }
 
 .hero p{
-  margin-top:10px;
   font-size:12px;
   letter-spacing:0.25em;
   text-transform:uppercase;
   opacity:0.6;
+  margin-top:10px;
 }
 
 /* ================= SEÇÕES ================= */
 .section{
   max-width:900px;
   margin:0 auto;
-  padding:70px 20px;
+  padding:60px 20px;
 }
 
 .section h2{
@@ -139,11 +140,11 @@ header{
   margin-bottom:30px;
 }
 
-/* cards com espaçamento REAL */
+/* cards AGORA COM ESPAÇO REAL */
 .card{
   border-top:1px solid rgba(0,0,0,0.12);
-  padding:22px 0;
-  margin-bottom:18px;
+  padding:20px 0;
+  margin-bottom:16px;
 }
 
 .card h3{
@@ -173,7 +174,6 @@ button{
   color:#fff;
 }
 
-/* destaque */
 button.gold{
   background:#8B6F47;
 }
@@ -189,14 +189,12 @@ button.gold{
   z-index:1000;
   padding:40px;
   transition:0.4s ease;
-  box-shadow:2px 0 25px rgba(0,0,0,0.12);
 }
 
 .menu-item{
   padding:14px 0;
   letter-spacing:0.15em;
   text-transform:uppercase;
-  font-size:13px;
 }
 
 hr{
@@ -216,7 +214,7 @@ hr{
 
 <div id="menuBtn">☰</div>
 
-<div class="logo-wrapper">
+<div class="logo">
 <img src="logo.png" alt="Casa Trívia">
 </div>
 
@@ -231,13 +229,13 @@ hr{
 
 </header>
 
-<!-- HERO RESTAURADO -->
+<main>
+
 <section class="hero">
 <h1>Casa Trívia</h1>
 <p>olfactive architecture of memory</p>
 </section>
 
-<!-- COLEÇÕES RESTAURADAS -->
 <section class="section">
 <h2>Essential Collection</h2>
 
@@ -290,38 +288,10 @@ hr{
 
 </section>
 
-<section class="section">
-<h2>Haute Collection</h2>
+</main>
 
-<div class="card">
-<h3>Black Orchid Noire</h3>
-<div class="notes">Velvet Night</div>
-<div class="price">R$ 199</div>
-<button class="gold">Adquirir</button>
-</div>
-
-<div class="card">
-<h3>Smoke & Myrrh</h3>
-<div class="notes">Sacred Smoke</div>
-<div class="price">R$ 199</div>
-<button class="gold">Adquirir</button>
-</div>
-
-<div class="card">
-<h3>Golden Incense</h3>
-<div class="notes">Soft Spice</div>
-<div class="price">R$ 199</div>
-<button class="gold">Adquirir</button>
-</div>
-
-</section>
-
-<!-- MENU -->
 <div id="sideMenu">
-<div style="display:flex; justify-content:space-between;">
 <div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
-<div style="font-size:12px;">Login</div>
-</div>
 
 <div style="margin-top:30px;">
 <div class="menu-item">Velas Aromáticas</div><hr>
