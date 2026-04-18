@@ -16,15 +16,65 @@
       padding-top:260px;
     }
 
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:#F6F1EA;
-      border-bottom:1px solid rgba(0,0,0,0.08);
-      z-index:999;
-    }
+    <header style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#F6F1EA;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  z-index:999;
+">
+
+  <!-- BARRA SUPERIOR -->
+  <div style="
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 22px;
+  ">
+
+    <!-- MENU -->
+    <div id="menuBtn" style="
+      font-size:22px;
+      cursor:pointer;
+    ">☰</div>
+
+    <!-- NOME CENTRAL -->
+    <div style="
+      font-size:13px;
+      letter-spacing:0.25em;
+      text-transform:uppercase;
+      font-family: Georgia, serif;
+      opacity:0.85;
+    ">
+      Casa Trívia
+    </div>
+
+    <!-- CARRINHO MINIMALISTA -->
+    <div style="
+      width:18px;
+      height:18px;
+      border:1.5px solid #000;
+      position:relative;
+      cursor:pointer;
+    ">
+      <div style="
+        width:10px;
+        height:1.5px;
+        background:#000;
+        position:absolute;
+        bottom:-4px;
+        right:-4px;
+        transform:rotate(45deg);
+      "></div>
+    </div>
+
+  </div>
+
+  <div style="height:1px; background:rgba(0,0,0,0.08);"></div>
+
+</header>
 
     .hero{
       text-align:center;
@@ -145,17 +195,17 @@
 <!-- ================= LOGO GRANDE ================= -->
 <section style="
   text-align:center;
-  padding-top:20px;
+  padding-top:10px;
   padding-bottom:10px;
 ">
 
   <img src="logo.png" style="
-    height:170px;
+    height:200px;
     width:auto;
     display:block;
     margin:0 auto;
     position:relative;
-    top:-10px;
+    top:-25px;
   " alt="Casa Trívia">
 
 </section>
