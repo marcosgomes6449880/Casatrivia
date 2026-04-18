@@ -42,7 +42,6 @@ header{
   cursor:pointer;
 }
 
-/* texto central */
 .brand{
   position:absolute;
   left:50%;
@@ -52,7 +51,6 @@ header{
   text-transform:uppercase;
 }
 
-/* ícones */
 .icons{
   display:flex;
   gap:14px;
@@ -79,7 +77,7 @@ header{
   transform:rotate(45deg);
 }
 
-/* carrinho SVG */
+/* carrinho */
 svg{
   width:18px;
   height:18px;
@@ -93,14 +91,14 @@ main{
   padding-top:90px;
 }
 
-/* ================= LOGO GRANDE ================= */
+/* ================= LOGO ================= */
 .logo-section{
   text-align:center;
   padding:40px 20px 10px;
 }
 
 .logo-section img{
-  height:300px; /* 🔥 AUMENTADO COMO PEDIDO */
+  height:300px;
   width:auto;
 }
 
@@ -131,11 +129,11 @@ main{
   position:relative;
 }
 
-/* título + login */
+/* HEADER DA SEÇÃO (CORRIGIDO) */
 .section-header{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content:center;
+  position:relative;
   margin-bottom:30px;
 }
 
@@ -145,8 +143,11 @@ main{
   text-transform:uppercase;
 }
 
-/* LOGIN */
+/* LOGIN FIXO NO TOPO DIREITO */
 .login{
+  position:absolute;
+  right:0;
+  top:0;
   font-size:12px;
   letter-spacing:0.2em;
   text-transform:uppercase;
@@ -154,7 +155,7 @@ main{
   opacity:0.7;
 }
 
-/* cards com mais respiro */
+/* cards */
 .card{
   border-top:1px solid rgba(0,0,0,0.12);
   padding:24px 0;
@@ -222,7 +223,6 @@ hr{
 
 <body>
 
-<!-- HEADER -->
 <header>
 
 <div id="menuBtn">☰</div>
@@ -230,6 +230,7 @@ hr{
 <div class="brand">Casa Trívia</div>
 
 <div class="icons">
+
 <div class="search"></div>
 
 <svg viewBox="0 0 24 24">
@@ -244,20 +245,18 @@ hr{
 
 <main>
 
-<!-- LOGO -->
 <section class="logo-section">
 <img src="logo.png" alt="Casa Trívia">
 </section>
 
-<!-- HERO -->
 <section class="hero">
 <h1>Casa Trívia</h1>
 <p>olfactive architecture of memory</p>
 </section>
 
-<!-- COLEÇÃO 1 -->
-<section class="section">
+<!-- COLEÇÕES -->
 
+<section class="section">
 <div class="section-header">
 <h2>Essential Collection</h2>
 <div class="login">Login</div>
@@ -283,12 +282,9 @@ hr{
 <div class="price">R$ 119</div>
 <button>Adquirir</button>
 </div>
-
 </section>
 
-<!-- COLEÇÃO 2 -->
 <section class="section">
-
 <div class="section-header">
 <h2>Signature Collection</h2>
 <div class="login">Login</div>
@@ -314,12 +310,9 @@ hr{
 <div class="price">R$ 139</div>
 <button>Adquirir</button>
 </div>
-
 </section>
 
-<!-- COLEÇÃO 3 -->
 <section class="section">
-
 <div class="section-header">
 <h2>Haute Collection</h2>
 <div class="login">Login</div>
@@ -345,14 +338,11 @@ hr{
 <div class="price">R$ 199</div>
 <button class="gold">Adquirir</button>
 </div>
-
 </section>
 
 </main>
 
-<!-- MENU -->
 <div id="sideMenu">
-
 <div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
 
 <div style="margin-top:30px;">
