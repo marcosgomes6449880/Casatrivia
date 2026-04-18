@@ -1,61 +1,163 @@
+<!-- ================= HEADER ================= -->
 <header style="
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  padding:14px 22px;
-  background:rgba(246,241,234,0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom:1px solid rgba(0,0,0,0.05);
+  background:#F6F1EA;
+  border-bottom:1px solid rgba(0,0,0,0.08);
   z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
 ">
 
-  <!-- MENU HAMBURGUER (ESQUERDA) -->
-  <div style="font-size:22px; cursor:pointer;">
-    ☰
-  </div>
-
-  <!-- LOGO CENTRAL -->
   <div style="
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 22px;
   ">
 
-    <img src="logo.png" style="
-      height:95px;
-      width:auto;
-      display:block;
-      margin:0 auto;
-      object-fit:contain;
-    " alt="Casa Trívia">
-
-    <div style="
-      margin-top:6px;
-      font-size:12px;
-      letter-spacing:0.35em;
-      text-transform:uppercase;
-      font-family: Georgia, serif;
+    <!-- MENU HAMBURGUER -->
+    <div id="menuBtn" style="
+      font-size:22px;
+      cursor:pointer;
+      user-select:none;
     ">
-      Casa Trívia
+      ☰
+    </div>
+
+    <!-- LOGO CENTRAL -->
+    <div style="
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      text-align:center;
+    ">
+
+      <img src="logo.png" style="
+        height:150px;
+        width:auto;
+        display:block;
+        margin:0 auto;
+      " alt="Casa Trívia">
+
+      <div style="
+        margin-top:6px;
+        font-size:14px;
+        letter-spacing:0.35em;
+        text-transform:uppercase;
+      ">
+        Casa Trívia
+      </div>
+
+    </div>
+
+    <!-- DIREITA -->
+    <div style="
+      display:flex;
+      align-items:center;
+      gap:18px;
+    ">
+
+      <!-- LUPA -->
+      <div style="
+        width:16px;
+        height:16px;
+        border:1.5px solid #000;
+        border-radius:50%;
+        position:relative;
+        cursor:pointer;
+      ">
+        <div style="
+          width:8px;
+          height:1.5px;
+          background:#000;
+          position:absolute;
+          bottom:-4px;
+          right:-4px;
+          transform:rotate(45deg);
+        "></div>
+      </div>
+
+      <!-- CARRINHO -->
+      <div style="font-size:18px; cursor:pointer;">
+        🛒
+      </div>
+
     </div>
 
   </div>
 
-  <!-- ÍCONES DIREITA -->
-  <div style="
-    display:flex;
-    align-items:center;
-    gap:18px;
-    font-size:18px;
-  ">
-    <span style="cursor:pointer;">🔍</span>
-    <span style="cursor:pointer;">🛒</span>
-  </div>
+  <div style="height:1px; background:rgba(0,0,0,0.08);"></div>
 
 </header>
+
+
+<!-- ================= MENU LATERAL ================= -->
+<div id="sideMenu" style="
+  position:fixed;
+  top:0;
+  left:-100%;
+  width:80%;
+  height:100%;
+  background:#F6F1EA;
+  z-index:1000;
+  padding:40px;
+  transition:0.4s ease;
+  box-shadow:2px 0 25px rgba(0,0,0,0.12);
+">
+
+  <div style="
+    font-size:22px;
+    cursor:pointer;
+  " onclick="closeMenu()">✕</div>
+
+  <div style="
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    font-size:14px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+  ">
+
+    <div>Velas Aromáticas</div>
+    <hr>
+    <div>Home Spray</div>
+    <hr>
+    <div>Difusores de Ambientes</div>
+    <hr>
+    <div>Kits Presente</div>
+    <hr>
+    <div>Embalagens Presenteáveis</div>
+    <hr>
+    <div>Sabonetes</div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CSS OBRIGATÓRIO ================= -->
+<style>
+body{
+  padding-top:260px;
+}
+</style>
+
+
+<!-- ================= SCRIPT ================= -->
+<script>
+const menu = document.getElementById("sideMenu");
+const btn = document.getElementById("menuBtn");
+
+btn.onclick = function () {
+  menu.style.left = "0";
+}
+
+function closeMenu() {
+  menu.style.left = "-100%";
+}
+</script>
+</body>
+</html>
