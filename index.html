@@ -8,7 +8,7 @@
 
 <style>
 
-/* ================= RESET ================= */
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -20,7 +20,7 @@ body{
   background:#F6F1EA;
   color:#1C1C1C;
   -webkit-font-smoothing: antialiased;
-  padding-top:260px;
+  padding-top:320px;
 }
 
 /* ================= HEADER ================= */
@@ -39,32 +39,38 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 22px;
+  padding:14px 22px;
 }
 
-/* logo central */
+/* MENU */
+#menuBtn{
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* LOGO CENTRO (CORRETO AGORA) */
 .logo-wrapper{
   position:absolute;
   left:50%;
   transform:translateX(-50%);
+  top:40px;
   text-align:center;
 }
 
 .logo-wrapper img{
-  height:200px;
+  height:220px;
   width:auto;
   display:block;
-  margin:0 auto;
 }
 
-/* ícones */
+/* ÍCONES DIREITA */
 .icons{
   display:flex;
   gap:16px;
   align-items:center;
 }
 
-/* lupa */
+/* LUPA */
 .search{
   width:16px;
   height:16px;
@@ -84,15 +90,16 @@ header{
   transform:rotate(45deg);
 }
 
-/* carrinho simples */
+/* CARRINHO CORRIGIDO */
 .cart{
   width:18px;
   height:18px;
   border:1.5px solid #000;
+  border-radius:2px;
   position:relative;
 }
 
-/* linha separadora */
+/* linha */
 .line{
   height:1px;
   background:rgba(0,0,0,0.08);
@@ -105,7 +112,7 @@ header{
 }
 
 .hero h1{
-  font-size:56px;
+  font-size:64px;
   font-weight:400;
 }
 
@@ -113,30 +120,30 @@ header{
   margin-top:10px;
   font-size:12px;
   letter-spacing:0.25em;
-  opacity:0.6;
   text-transform:uppercase;
+  opacity:0.6;
 }
 
 /* ================= SEÇÕES ================= */
 .section{
   max-width:900px;
   margin:0 auto;
-  padding:60px 20px;
+  padding:70px 20px;
 }
 
 .section h2{
   text-align:center;
   font-size:18px;
-  font-weight:400;
   letter-spacing:0.2em;
-  margin-bottom:30px;
   text-transform:uppercase;
+  margin-bottom:30px;
 }
 
-/* card produto */
+/* cards com espaçamento REAL */
 .card{
   border-top:1px solid rgba(0,0,0,0.12);
-  padding:18px 0;
+  padding:22px 0;
+  margin-bottom:18px;
 }
 
 .card h3{
@@ -166,12 +173,12 @@ button{
   color:#fff;
 }
 
-/* botão especial */
+/* destaque */
 button.gold{
   background:#8B6F47;
 }
 
-/* ================= MENU LATERAL ================= */
+/* ================= MENU ================= */
 #sideMenu{
   position:fixed;
   top:0;
@@ -187,8 +194,8 @@ button.gold{
 
 .menu-item{
   padding:14px 0;
-  text-transform:uppercase;
   letter-spacing:0.15em;
+  text-transform:uppercase;
   font-size:13px;
 }
 
@@ -203,25 +210,19 @@ hr{
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
 
 <div class="header-bar">
 
-<!-- MENU -->
-<div id="menuBtn" style="font-size:22px; cursor:pointer;">☰</div>
+<div id="menuBtn">☰</div>
 
-<!-- LOGO -->
 <div class="logo-wrapper">
 <img src="logo.png" alt="Casa Trívia">
 </div>
 
-<!-- ICONES -->
 <div class="icons">
-
 <div class="search"></div>
 <div class="cart"></div>
-
 </div>
 
 </div>
@@ -230,14 +231,13 @@ hr{
 
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO RESTAURADO -->
 <section class="hero">
 <h1>Casa Trívia</h1>
 <p>olfactive architecture of memory</p>
 </section>
 
-<!-- ================= COLEÇÕES ================= -->
-
+<!-- COLEÇÕES RESTAURADAS -->
 <section class="section">
 <h2>Essential Collection</h2>
 
@@ -261,6 +261,7 @@ hr{
 <div class="price">R$ 119</div>
 <button>Adquirir</button>
 </div>
+
 </section>
 
 <section class="section">
@@ -286,6 +287,7 @@ hr{
 <div class="price">R$ 139</div>
 <button>Adquirir</button>
 </div>
+
 </section>
 
 <section class="section">
@@ -311,25 +313,23 @@ hr{
 <div class="price">R$ 199</div>
 <button class="gold">Adquirir</button>
 </div>
+
 </section>
 
-<!-- ================= MENU LATERAL ================= -->
+<!-- MENU -->
 <div id="sideMenu">
-
 <div style="display:flex; justify-content:space-between;">
 <div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
-<div style="font-size:12px; letter-spacing:0.2em;">Login</div>
+<div style="font-size:12px;">Login</div>
 </div>
 
 <div style="margin-top:30px;">
-
 <div class="menu-item">Velas Aromáticas</div><hr>
 <div class="menu-item">Home Spray</div><hr>
 <div class="menu-item">Difusores</div><hr>
 <div class="menu-item">Kits Presente</div><hr>
 <div class="menu-item">Embalagens</div><hr>
 <div class="menu-item">Sabonetes</div>
-
 </div>
 
 </div>
