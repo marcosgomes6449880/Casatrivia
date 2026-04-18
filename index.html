@@ -96,10 +96,12 @@ main{
   background-position:center top;
   background-repeat:no-repeat;
 
-  /* 🔥 ESSENCIAL */
-  margin-top:-40px; /* puxa pra encostar no header */
-  padding-top:80px; /* compensa o conteúdo */
-  padding-bottom:80px; /* desce até encostar nas coleções */
+  /* 🔥 AQUI ESTÁ O SEGREDO */
+  min-height:calc(100vh - 70px);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 /* LOGO */
