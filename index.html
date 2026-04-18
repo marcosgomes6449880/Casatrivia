@@ -1,13 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casa Trívia — Fragrance Atelier</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Georgia, serif;
+      background:#F6F1EA;
+      color:#1C1C1C;
+      -webkit-font-smoothing: antialiased;
+      padding-top:260px;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:#F6F1EA;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+      z-index:999;
+    }
+
+    .hero{
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    h1{
+      font-size:56px;
+      margin:0;
+      font-weight:400;
+    }
+
+    .subtitle{
+      margin-top:10px;
+      font-size:11px;
+      letter-spacing:0.35em;
+      text-transform:uppercase;
+      opacity:0.6;
+    }
+
+    .manifesto{
+      max-width:520px;
+      margin:30px auto 0;
+      font-size:14px;
+      line-height:1.8;
+      opacity:0.75;
+    }
+
+    .section{
+      padding:80px 24px;
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    .section h2{
+      font-size:20px;
+      font-weight:400;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      margin-bottom:30px;
+      opacity:0.8;
+    }
+
+    .card{
+      border-top:1px solid rgba(0,0,0,0.1);
+      padding:20px 0;
+    }
+
+    .card h3{
+      font-size:18px;
+      margin:0;
+    }
+
+    .notes{
+      font-size:13px;
+      opacity:0.6;
+      margin-top:6px;
+    }
+
+    .price{
+      font-size:12px;
+      margin-top:8px;
+      letter-spacing:0.2em;
+      text-transform:uppercase;
+      opacity:0.7;
+    }
+  </style>
+</head>
+
+<body>
+
 <!-- ================= HEADER ================= -->
-<header style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:#F6F1EA;
-  border-bottom:1px solid rgba(0,0,0,0.08);
-  z-index:999;
-">
+<header>
 
   <div style="
     display:flex;
@@ -52,6 +142,72 @@
 
 </header>
 
+<!-- ================= LOGO GRANDE ================= -->
+<section style="text-align:center; padding-top:40px;">
+  <img src="logo.png" style="height:180px;">
+  <div style="margin-top:10px; letter-spacing:0.35em; text-transform:uppercase;">
+    Casa Trívia
+  </div>
+</section>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+  <h1>Casa Trívia</h1>
+
+  <div class="subtitle">
+    olfactive architecture of memory
+  </div>
+
+  <div class="manifesto">
+    Casa Trívia is a contemporary fragrance house devoted to silence, memory and form.
+    Each candle is composed as an atmospheric object — where scent becomes space.
+  </div>
+
+</section>
+
+<!-- ================= ESSENTIAL ================= -->
+<section class="section">
+  <h2>Essential Collection</h2>
+
+  <div class="card">
+    <h3>White Tea & Vanilla</h3>
+    <div class="notes">Soft Ritual · clean warmth</div>
+    <div class="price">R$ 119</div>
+  </div>
+
+  <div class="card">
+    <h3>Wild Verbena</h3>
+    <div class="notes">Morning Air · citrus green</div>
+    <div class="price">R$ 119</div>
+  </div>
+
+</section>
+
+<!-- ================= SIGNATURE ================= -->
+<section class="section">
+  <h2>Signature Collection</h2>
+
+  <div class="card">
+    <h3>Silent Garden</h3>
+    <div class="notes">Green shadow · stillness</div>
+    <div class="price">R$ 139</div>
+  </div>
+
+</section>
+
+<!-- ================= HAUTE ================= -->
+<section class="section">
+  <h2>Haute Collection</h2>
+
+  <div class="card">
+    <h3>Black Orchid Noire</h3>
+    <div class="notes">Velvet night · deep floral</div>
+    <div class="price">R$ 199</div>
+  </div>
+
+</section>
+
 <!-- ================= MENU LATERAL ================= -->
 <div id="sideMenu" style="
   position:fixed;
@@ -66,58 +222,32 @@
   box-shadow:2px 0 25px rgba(0,0,0,0.12);
 ">
 
-  <div style="
-    font-size:22px;
-    cursor:pointer;
-  " onclick="closeMenu()">✕</div>
+  <div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
 
-  <div style="
-    margin-top:40px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    font-size:14px;
-    letter-spacing:0.15em;
-    text-transform:uppercase;
-  ">
+  <div style="margin-top:40px; display:flex; flex-direction:column; gap:18px; text-transform:uppercase; letter-spacing:0.15em;">
 
-    <div>Velas Aromáticas</div>
-    <hr>
-    <div>Home Spray</div>
-    <hr>
-    <div>Difusores de Ambientes</div>
-    <hr>
-    <div>Kits Presente</div>
-    <hr>
-    <div>Embalagens Presenteáveis</div>
-    <hr>
+    <div>Velas Aromáticas</div><hr>
+    <div>Home Spray</div><hr>
+    <div>Difusores</div><hr>
+    <div>Kits Presente</div><hr>
+    <div>Embalagens</div><hr>
     <div>Sabonetes</div>
 
   </div>
 
 </div>
 
-
-<!-- ================= CSS OBRIGATÓRIO ================= -->
-<style>
-body{
-  padding-top:260px;
-}
-</style>
-
-
 <!-- ================= SCRIPT ================= -->
 <script>
 const menu = document.getElementById("sideMenu");
 const btn = document.getElementById("menuBtn");
 
-btn.onclick = function () {
-  menu.style.left = "0";
-}
+btn.onclick = () => menu.style.left = "0";
 
-function closeMenu() {
+function closeMenu(){
   menu.style.left = "-100%";
 }
 </script>
+
 </body>
-</html>
+      </html>
