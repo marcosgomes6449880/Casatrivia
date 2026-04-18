@@ -126,13 +126,33 @@
 
 <body>
 
-<header style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:24px;">
-  <img src="logo.png" 
-     style="height:320px; width:auto; margin-bottom:20px;" 
-     alt="Casa Trívia">
-  <div style="font-size:11px; letter-spacing:0.35em; text-transform:uppercase; opacity:0.7;">
-    Fragrance Atelier
+<header style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 40px;
+  background:rgba(246,241,234,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  z-index:999;
+">
+
+  <div style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase;">
+    Casa Trívia
   </div>
+
+  <nav style="display:flex; gap:30px; font-size:11px; letter-spacing:0.25em; text-transform:uppercase;">
+    <a href="#home" style="text-decoration:none; color:#1C1C1C;">Home</a>
+    <a href="#collection" style="text-decoration:none; color:#1C1C1C;">Collection</a>
+    <a href="#about" style="text-decoration:none; color:#1C1C1C;">About</a>
+    <a href="#contact" style="text-decoration:none; color:#1C1C1C;">Contact</a>
+  </nav>
+
 </header>
 
 <section class="hero">
