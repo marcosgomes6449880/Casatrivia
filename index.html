@@ -87,17 +87,17 @@ svg{
 /* MAIN */
 main{
   padding-top:110px;
+}
 
-  /* 🔥 FUNDO FUNCIONANDO EM TODOS OS DISPOSITIVOS */
+/* 🔥 FUNDO NA ÁREA DA LOGO */
+.hero-bg{
   background-image:url("fundocasatrivia.png");
-  background-size:contain;
-  background-position:center;
+  background-size:cover;
+  background-position:center top;
   background-repeat:no-repeat;
 
-  /* REMOVE isso (era o problema) */
-  /* background-attachment:fixed; */
-
-  background-color:#F3EFEA;
+  padding-top:20px;
+  padding-bottom:30px;
 }
 
 /* LOGO */
@@ -291,6 +291,9 @@ footer svg{
 
 <main>
 
+<!-- 🔥 FUNDO APLICADO AQUI -->
+<div class="hero-bg">
+
 <section class="logo-section">
 <img src="logo.png">
 </section>
@@ -299,6 +302,8 @@ footer svg{
 <h1>Casa Trívia</h1>
 <p>arquitetura olfativa da memória</p>
 </section>
+
+</div>
 
 <!-- ESSENCIAL -->
 <section class="section">
