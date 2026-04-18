@@ -120,7 +120,7 @@ main{
 .section{
   max-width:900px;
   margin:0 auto;
-  padding:80px 20px;
+  padding:100px 20px;
 }
 
 .section-header{
@@ -147,8 +147,12 @@ main{
 /* CARD */
 .card{
   border-top:1px solid rgba(0,0,0,0.12);
-  padding:24px 0;
-  margin-bottom:22px;
+  padding:28px 0;
+  margin-bottom:30px;
+}
+
+.section .card:last-child{
+  margin-bottom:0;
 }
 
 .card h3{
@@ -226,6 +230,15 @@ hr{
   border-top:1px solid rgba(0,0,0,0.08);
 }
 
+/* LOGIN NO MENU */
+#sideMenu .login{
+  font-size:12px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  opacity:0.7;
+  cursor:pointer;
+}
+
 /* FOOTER */
 footer{
   background:#1C1C1C;
@@ -280,7 +293,6 @@ footer svg{
 <section class="section">
 <div class="section-header">
 <h2>Essencial</h2>
-<div class="login">Login</div>
 </div>
 
 <div class="card">
@@ -447,10 +459,13 @@ footer svg{
 
 </main>
 
-<!-- MENU LATERAL -->
+<!-- MENU -->
 <div id="sideMenu">
 
+<div style="display:flex; justify-content:space-between; align-items:center;">
 <div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
+<div class="login">Login</div>
+</div>
 
 <div style="margin-top:30px;">
 <div class="menu-item">Velas Aromáticas</div><hr>
