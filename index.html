@@ -129,7 +129,7 @@
   left:0;
   width:100%;
   padding:18px 20px;
-  background:rgba(246,241,234,0.75);
+  background:rgba(246,241,234,0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom:1px solid rgba(0,0,0,0.05);
@@ -137,39 +137,38 @@
   text-align:center;
 ">
 
-  <!-- MENU TOPO -->
+  <!-- MENU -->
   <nav style="
     display:flex;
     justify-content:center;
-    gap:28px;
+    align-items:center;
+    gap:26px;
     font-size:11px;
     letter-spacing:0.25em;
     text-transform:uppercase;
-    margin-bottom:18px;
   ">
+
     <a href="#home" style="text-decoration:none; color:#1C1C1C;">Home</a>
+
+    <span style="width:1px; height:12px; background:rgba(0,0,0,0.2);"></span>
+
     <a href="#collection" style="text-decoration:none; color:#1C1C1C;">Collection</a>
+
+    <span style="width:1px; height:12px; background:rgba(0,0,0,0.2);"></span>
+
     <a href="#about" style="text-decoration:none; color:#1C1C1C;">About</a>
-    <a href="#contact" style="text-decoration:none; color:#1C1C1C;">Contact</a>
+
   </nav>
 
-  <!-- LOGO CENTRAL -->
-  <img src="logo.png" style="
-    height:110px;
-    width:auto;
-    object-fit:contain;
-  " alt="Casa Trívia">
-
-  <!-- NOME ABAIXO -->
-  <div style="
-    margin-top:10px;
-    font-family: Georgia, serif;
-    font-size:14px;
-    letter-spacing:0.35em;
-    text-transform:uppercase;
-    font-weight:300;
-  ">
-    Casa Trívia
+  <!-- LOGO (SÓ UMA VEZ, CENTRAL) -->
+  <div style="margin-top:16px;">
+    <img src="logo.png" style="
+      height:110px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+      margin:0 auto;
+    " alt="Casa Trívia">
   </div>
 
 </header>
