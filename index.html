@@ -21,7 +21,7 @@ body{
   color:#1C1C1C;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
   position:fixed;
   top:0;
@@ -84,12 +84,12 @@ svg{
   stroke-width:1.5;
 }
 
-/* ================= MAIN ================= */
+/* MAIN */
 main{
   padding-top:110px;
 }
 
-/* ================= LOGO ================= */
+/* LOGO */
 .logo-section{
   text-align:center;
   padding:40px 20px 10px;
@@ -97,10 +97,9 @@ main{
 
 .logo-section img{
   height:300px;
-  width:auto;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   text-align:center;
   padding:10px 20px 30px;
@@ -108,29 +107,16 @@ main{
 
 .hero h1{
   font-size:58px;
-  font-weight:400;
 }
 
 .hero p{
   font-size:12px;
   letter-spacing:0.25em;
   opacity:0.6;
-  margin-top:10px;
   text-transform:uppercase;
 }
 
-/* LOGIN */
-.login-fixed{
-  position:fixed;
-  top:85px;
-  right:20px;
-  font-size:12px;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  opacity:0.7;
-}
-
-/* ================= SEÇÕES ================= */
+/* SECTIONS */
 .section{
   max-width:900px;
   margin:0 auto;
@@ -139,7 +125,8 @@ main{
 
 .section-header{
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:30px;
 }
 
@@ -147,6 +134,14 @@ main{
   font-size:18px;
   letter-spacing:0.2em;
   text-transform:uppercase;
+}
+
+.login{
+  font-size:12px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  opacity:0.7;
+  cursor:pointer;
 }
 
 /* CARD */
@@ -158,7 +153,6 @@ main{
 
 .card h3{
   font-size:18px;
-  font-weight:400;
 }
 
 .notes{
@@ -167,7 +161,6 @@ main{
   margin-top:5px;
 }
 
-/* PREÇO */
 .price{
   font-size:15px;
   margin-top:6px;
@@ -177,10 +170,9 @@ main{
 .pix{
   font-size:11px;
   opacity:0.6;
-  margin-top:2px;
 }
 
-/* CONTROLES */
+/* ACTIONS */
 .actions{
   display:flex;
   align-items:center;
@@ -201,9 +193,9 @@ main{
 button{
   padding:8px 14px;
   border:none;
-  cursor:pointer;
   background:#1C1C1C;
   color:#fff;
+  cursor:pointer;
 }
 
 button.gold{
@@ -232,7 +224,6 @@ button.gold{
 hr{
   border:0;
   border-top:1px solid rgba(0,0,0,0.08);
-  margin:6px 0;
 }
 
 /* FOOTER */
@@ -248,7 +239,6 @@ footer{
 footer svg{
   stroke:#fff;
   opacity:0.8;
-  cursor:pointer;
 }
 
 </style>
@@ -275,12 +265,10 @@ footer svg{
 
 </header>
 
-<div class="login-fixed">Login</div>
-
 <main>
 
 <section class="logo-section">
-<img src="logo.png" alt="Casa Trívia">
+<img src="logo.png">
 </section>
 
 <section class="hero">
@@ -290,7 +278,10 @@ footer svg{
 
 <!-- ESSENCIAL -->
 <section class="section">
-<div class="section-header"><h2>Essencial</h2></div>
+<div class="section-header">
+<h2>Essencial</h2>
+<div class="login">Login</div>
+</div>
 
 <div class="card">
 <h3>White Tea & Vanilla</h3>
@@ -344,7 +335,9 @@ footer svg{
 
 <!-- ASSINATURA -->
 <section class="section">
-<div class="section-header"><h2>Assinatura</h2></div>
+<div class="section-header">
+<h2>Assinatura</h2>
+</div>
 
 <div class="card">
 <h3>Silent Garden</h3>
@@ -398,7 +391,9 @@ footer svg{
 
 <!-- EXCLUSIVA -->
 <section class="section">
-<div class="section-header"><h2>Exclusiva</h2></div>
+<div class="section-header">
+<h2>Exclusiva</h2>
+</div>
 
 <div class="card">
 <h3>Black Orchid Noire</h3>
@@ -452,26 +447,58 @@ footer svg{
 
 </main>
 
-<footer>
+<!-- MENU LATERAL -->
+<div id="sideMenu">
 
+<div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
+
+<div style="margin-top:30px;">
+<div class="menu-item">Velas Aromáticas</div><hr>
+<div class="menu-item">Home Spray</div><hr>
+<div class="menu-item">Difusores</div><hr>
+<div class="menu-item">Kits Presente</div><hr>
+<div class="menu-item">Embalagens</div><hr>
+<div class="menu-item">Sabonetes</div>
+</div>
+
+</div>
+
+<footer>
 <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
 <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 0-14 5l-1 4 4-1a8 8 0 0 0 11-8z"/></svg>
-<svg viewBox="0 0 24 24"><path d="M22 16v3a2 2 0 0 1-2 2A19 19 0 0 1 3 4a2 2 0 0 1 2-2h3"/></svg>
-<svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-<svg viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
-
+<svg viewBox="0 0 24 24"><path d="M22 16v3"/></svg>
+<svg viewBox="0 0 24 24"><path d="M18 2h-3"/></svg>
+<svg viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20"/></svg>
 </footer>
 
 <script>
-function inc(el){
-  let num=el.parentNode.querySelector(".num");
-  num.innerText=parseInt(num.innerText)+1;
+const menu = document.getElementById("sideMenu");
+const btn = document.getElementById("menuBtn");
+
+if(btn && menu){
+  btn.onclick = () => {
+    menu.style.left = "0";
+  }
 }
+
+function closeMenu(){
+  if(menu){
+    menu.style.left = "-100%";
+  }
+}
+
+function inc(el){
+  let num = el.parentNode.querySelector(".num");
+  num.innerText = parseInt(num.innerText) + 1;
+}
+
 function dec(el){
-  let num=el.parentNode.querySelector(".num");
-  if(num.innerText>1) num.innerText=parseInt(num.innerText)-1;
+  let num = el.parentNode.querySelector(".num");
+  if(num.innerText > 1){
+    num.innerText = parseInt(num.innerText) - 1;
+  }
 }
 </script>
 
 </body>
-  </html>
+</html>
