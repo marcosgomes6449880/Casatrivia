@@ -51,6 +51,17 @@ header{
   text-transform:uppercase;
 }
 
+/* ✨ IDENTIDADE DA MARCA */
+.brand::after{
+  content:" • três caminhos sensoriais";
+  display:block;
+  font-size:10px;
+  opacity:0.6;
+  letter-spacing:0.15em;
+  margin-top:2px;
+  text-transform:none;
+}
+
 .icons{
   display:flex;
   gap:14px;
@@ -89,17 +100,16 @@ main{
   padding-top:110px;
 }
 
-/* 🔥 FUNDO NA ÁREA DA LOGO */
+/* HERO FUNDO */
 .hero-bg{
   background-image:url("fundocasatrivia.png");
   background-size:cover;
   background-position:center top;
   background-repeat:no-repeat;
 
-  /* 🔥 ESSENCIAL */
-  margin-top:-40px; /* puxa pra encostar no header */
-  padding-top:80px; /* compensa o conteúdo */
-  padding-bottom:120px; /* desce até encostar nas coleções */
+  margin-top:-40px;
+  padding-top:80px;
+  padding-bottom:120px;
 }
 
 /* LOGO */
@@ -120,13 +130,34 @@ main{
 
 .hero h1{
   font-size:58px;
+  letter-spacing:0.02em;
 }
 
 .hero p{
   font-size:12px;
   letter-spacing:0.25em;
-  opacity:0.6;
+  opacity:0.7;
   text-transform:uppercase;
+}
+
+/* ✨ MANIFESTO */
+.manifesto{
+  text-align:center;
+  padding:60px 25px;
+  max-width:700px;
+  margin:0 auto;
+  font-style:italic;
+  line-height:1.8;
+  opacity:0.85;
+}
+
+.manifesto span{
+  display:block;
+  margin-top:15px;
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  opacity:0.6;
 }
 
 /* SECTIONS */
@@ -149,6 +180,16 @@ main{
   text-transform:uppercase;
 }
 
+/* linha simbólica */
+.section-header h2::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:1px;
+  background:#8B6F47;
+  margin-top:8px;
+}
+
 .login{
   font-size:12px;
   letter-spacing:0.2em;
@@ -164,18 +205,16 @@ main{
   margin-bottom:30px;
 }
 
-.section .card:last-child{
-  margin-bottom:0;
-}
-
 .card h3{
   font-size:18px;
+  letter-spacing:0.02em;
 }
 
 .notes{
   font-size:13px;
-  opacity:0.6;
+  opacity:0.65;
   margin-top:5px;
+  font-style:italic;
 }
 
 .price{
@@ -238,18 +277,15 @@ button.gold{
   text-transform:uppercase;
 }
 
+/* ✨ identidade simbólica */
+.menu-item::before{
+  content:"✦ ";
+  opacity:0.5;
+}
+
 hr{
   border:0;
   border-top:1px solid rgba(0,0,0,0.08);
-}
-
-/* LOGIN NO MENU */
-#sideMenu .login{
-  font-size:12px;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  opacity:0.7;
-  cursor:pointer;
 }
 
 /* FOOTER */
@@ -293,7 +329,6 @@ footer svg{
 
 <main>
 
-<!-- 🔥 FUNDO APLICADO AQUI -->
 <div class="hero-bg">
 
 <section class="logo-section">
@@ -307,6 +342,17 @@ footer svg{
 
 </div>
 
+<!-- ✨ MANIFESTO CASA TRÍVIA -->
+<section class="manifesto">
+“Três caminhos atravessam o silêncio.
+Memória, presença e desejo se encontram no invisível.
+
+Papoulas não florescem apenas no campo,
+mas também naquilo que se lembra.”
+
+<span>CASA TRÍVIA • ENCRUZILHADA SENSORIAL</span>
+</section>
+
 <!-- ESSENCIAL -->
 <section class="section">
 <div class="section-header">
@@ -315,7 +361,7 @@ footer svg{
 
 <div class="card">
 <h3>White Tea & Vanilla</h3>
-<div class="notes">Soft Ritual</div>
+<div class="notes">Ritual suave de luz e silêncio</div>
 <div class="price">R$ 119</div>
 <div class="pix">R$ 107 com Pix</div>
 
@@ -331,7 +377,7 @@ footer svg{
 
 <div class="card">
 <h3>Wild Verbena</h3>
-<div class="notes">Citrus Green</div>
+<div class="notes">Jardim cítrico em movimento</div>
 <div class="price">R$ 119</div>
 <div class="pix">R$ 107 com Pix</div>
 
@@ -347,7 +393,7 @@ footer svg{
 
 <div class="card">
 <h3>Fig & Vetiver</h3>
-<div class="notes">Earth Depth</div>
+<div class="notes">Terra úmida e memória profunda</div>
 <div class="price">R$ 119</div>
 <div class="pix">R$ 107 com Pix</div>
 
@@ -371,7 +417,7 @@ footer svg{
 
 <div class="card">
 <h3>Silent Garden</h3>
-<div class="notes">Green Shadow</div>
+<div class="notes">Sombras verdes em descanso</div>
 <div class="price">R$ 139</div>
 <div class="pix">R$ 125 com Pix</div>
 
@@ -387,7 +433,7 @@ footer svg{
 
 <div class="card">
 <h3>Orchid Dust</h3>
-<div class="notes">Soft Floral</div>
+<div class="notes">Flor suspensa no tempo</div>
 <div class="price">R$ 139</div>
 <div class="pix">R$ 125 com Pix</div>
 
@@ -403,7 +449,7 @@ footer svg{
 
 <div class="card">
 <h3>Amber Veil</h3>
-<div class="notes">Warm Resin</div>
+<div class="notes">Resina quente em silêncio</div>
 <div class="price">R$ 139</div>
 <div class="pix">R$ 125 com Pix</div>
 
@@ -427,7 +473,7 @@ footer svg{
 
 <div class="card">
 <h3>Black Orchid Noire</h3>
-<div class="notes">Velvet Night</div>
+<div class="notes">Noite aveludada e densa</div>
 <div class="price">R$ 199</div>
 <div class="pix">R$ 179 com Pix</div>
 
@@ -443,7 +489,7 @@ footer svg{
 
 <div class="card">
 <h3>Smoke & Myrrh</h3>
-<div class="notes">Sacred Smoke</div>
+<div class="notes">Incenso antigo em pedra quente</div>
 <div class="price">R$ 199</div>
 <div class="pix">R$ 179 com Pix</div>
 
@@ -459,7 +505,7 @@ footer svg{
 
 <div class="card">
 <h3>Golden Incense</h3>
-<div class="notes">Soft Spice</div>
+<div class="notes">Luz dourada em fumaça leve</div>
 <div class="price">R$ 199</div>
 <div class="pix">R$ 179 com Pix</div>
 
@@ -534,4 +580,4 @@ function dec(el){
 </script>
 
 </body>
-  </html>
+</html>
