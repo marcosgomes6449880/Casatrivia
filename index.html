@@ -317,6 +317,8 @@ footer svg{
 <span>Carrinho</span>
 <span onclick="closeCart()" style="cursor:pointer;">✕</span>
 </div>
+  
+<div id="cartItems" style="padding:20px; font-size:14px;"></div>
 
 </div>
   
@@ -378,7 +380,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button>Comprar</button>
+<button onclick="addToCart('Chá Branco & Baunilha', 119, this)">Comprar</button>
 </div>
 </div>
 
@@ -394,7 +396,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button>Comprar</button>
+<button onclick="addToCart('Verbena', 119, this)">Comprar</button>
 </div>
 </div>
 
@@ -410,7 +412,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button>Comprar</button>
+<button onclick="addToCart('Folha de Figo & Bergamota', 119, this)">Comprar</button>
 </div>
 </div>
 
@@ -434,7 +436,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button>Comprar</button>
+<button onclick="addToCart('Jardim Silencioso', 139, this)">Comprar</button>
 </div>
 </div>
 
@@ -450,7 +452,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button>Comprar</button>
+<button onclick="addToCart('Orquidea Negra', 139, this)">Comprar</button>
 </div>
 </div>
 
@@ -466,7 +468,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button>Comprar</button>
+<button onclick="addToCart('Âmbar & Patchouli', 139, this)">Comprar</button>
 </div>
 </div>
 
@@ -490,7 +492,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button class="gold">Comprar</button>
+<button onclick="addToCart('Jasmim Absoluto', 139, this)">Comprar</button>
 </div>
 </div>
 
@@ -506,7 +508,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button class="gold">Comprar</button>
+<button onclick="addToCart('Mirra & Baunilha seca', 139, this)">Comprar</button>
 </div>
 </div>
 
@@ -522,7 +524,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button class="gold">Comprar</button>
+<button onclick="addToCart('Incenso Dourado', 139, this)">Comprar</button>
 </div>
 </div>
 
@@ -598,6 +600,39 @@ function dec(el){
 
 function closeCart(){
   document.getElementById("cartPanel").style.right = "-320px";
+}
+  let cart = [];
+
+function addToCart(name, price, el){
+
+  let qty = parseInt(
+    el.parentNode.querySelector(".num").innerText
+  );
+
+  cart.push({
+    name: name,
+    price: price,
+    qty: qty
+  });
+
+  updateCart();
+  openCart();
+}
+
+function updateCart(){
+  let container = document.getElementById("cartItems");
+
+  container.innerHTML = "";
+
+  cart.forEach(item => {
+    container.innerHTML += `
+      <div style="margin-bottom:15px;">
+        <strong>${item.name}</strong><br>
+        ${item.qty}x R$ ${item.price}<br>
+        Total: R$ ${item.qty * item.price}
+      </div>
+    `;
+  });
 }
 </script>
 
