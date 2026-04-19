@@ -291,12 +291,32 @@ footer svg{
   stroke:#fff;
   opacity:0.8;
 }
-
+#cartPanel{
+  position:fixed;
+  right:-100%;
+  top:0;
+  width:300px;
+  height:100%;
+  background:#F6F1EA;
+  z-index:2000;
+  transition:0.3s;
+}
+  
 </style>
+  
 </head>
 
 <body>
+<!-- CARRINHO -->
+<div id="cartPanel">
 
+<div style="padding:20px; display:flex; justify-content:space-between;">
+<span>Carrinho</span>
+<span onclick="closeCart()" style="cursor:pointer;">✕</span>
+</div>
+
+</div>
+  
 <header>
 
 <div id="menuBtn">☰</div>
@@ -306,7 +326,7 @@ footer svg{
 <div class="icons">
 <div class="search"></div>
 
-<svg viewBox="0 0 24 24">
+<svg viewBox="0 0 24 24" onclick="openCart()" style="cursor:pointer;">
 <circle cx="9" cy="21" r="1"></circle>
 <circle cx="20" cy="21" r="1"></circle>
 <path d="M1 1h4l2 12h13l3-9H6"></path>
@@ -568,6 +588,13 @@ function dec(el){
   if(num.innerText > 1){
     num.innerText = parseInt(num.innerText) - 1;
   }
+}
+  function openCart(){
+  document.getElementById("cartPanel").style.right = "0";
+}
+
+function closeCart(){
+  document.getElementById("cartPanel").style.right = "-100%";
 }
 </script>
 
