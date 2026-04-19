@@ -293,13 +293,16 @@ footer svg{
 }
 #cartPanel{
   position:fixed;
-  right:-100%;
+  right:-320px;
   top:0;
-  width:300px;
+  width:320px;
   height:100%;
   background:#F6F1EA;
   z-index:2000;
-  transition:0.3s;
+  transition:0.4s ease;
+
+  box-shadow:-8px 0 30px rgba(0,0,0,0.15); /* 🔥 diferença principal */
+  border-left:1px solid rgba(0,0,0,0.08);
 }
   
 </style>
@@ -590,11 +593,11 @@ function dec(el){
   }
 }
   function openCart(){
-  document.getElementById("cartPanel").style.right = "0";
+  document.getElementById("cartPanel").style.right = "0px";
 }
 
 function closeCart(){
-  document.getElementById("cartPanel").style.right = "-100%";
+  document.getElementById("cartPanel").style.right = "-320px";
 }
 </script>
 
