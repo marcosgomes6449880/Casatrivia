@@ -21,14 +21,15 @@ body{
   color:#1C1C1C;
 }
 
+/* HEADER */
 header{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:70px;
-  background:#3F4A33; /* verde musgo elegante */
-  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:#F6F1EA;
+  border-bottom:1px solid rgba(0,0,0,0.08);
   z-index:999;
   display:flex;
   align-items:center;
@@ -36,14 +37,11 @@ header{
   padding:0 20px;
 }
 
-/* MENU HAMBURGUER */
 #menuBtn{
   font-size:22px;
   cursor:pointer;
-  color:#B08D57; /* dourado antigo */
 }
 
-/* NOME CASA TRÍVIA */
 .brand{
   position:absolute;
   left:50%;
@@ -51,21 +49,29 @@ header{
   font-size:12px;
   letter-spacing:0.25em;
   text-transform:uppercase;
-  color:#B08D57; /* dourado antigo */
 }
 
-/* ICONES */
+/* ✨ IDENTIDADE DA MARCA */
+.brand::after{
+  content:" • três caminhos sensoriais";
+  display:block;
+  font-size:10px;
+  opacity:0.6;
+  letter-spacing:0.15em;
+  margin-top:2px;
+  text-transform:none;
+}
+
 .icons{
   display:flex;
   gap:14px;
   align-items:center;
 }
 
-/* LUPA */
 .search{
   width:16px;
   height:16px;
-  border:1.5px solid #B08D57;
+  border:1.5px solid #000;
   border-radius:50%;
   position:relative;
 }
@@ -75,29 +81,35 @@ header{
   position:absolute;
   width:8px;
   height:1.5px;
-  background:#B08D57;
+  background:#000;
   bottom:-4px;
   right:-4px;
   transform:rotate(45deg);
 }
 
-/* CARRINHO (SVG) */
-<svg viewBox="0 0 24 24" onclick="openCart()" style="cursor:pointer;">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
+svg{
+  width:18px;
+  height:18px;
+  stroke:#000;
+  fill:none;
+  stroke-width:1.5;
 }
+
+/* MAIN */
+main{
+  padding-top:110px;
+}
+
 /* HERO FUNDO */
 .hero-bg{
-  background-image:url("fundo.png");
-  background-size:cover !important;
-  background-position:center top !important;
-  background-repeat:no-repeat !important;
+  background-image:url("fundocasatrivia.png");
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
 
-  margin-top:0 !important;
-  padding-top:120px !important;
-  padding-bottom:120px !important;
+  margin-top:-40px;
+  padding-top:80px;
+  padding-bottom:120px;
 }
 
 /* LOGO */
@@ -106,13 +118,8 @@ header{
   padding:40px 20px 10px;
 }
 
-.logo-section{
-  text-align:center;
-  padding:120px 20px 20px !important;
-}
-  .logo-section img{
-  height:230px;
-  width:auto;
+.logo-section img{
+  height:310px;
 }
 
 /* HERO */
@@ -295,88 +302,12 @@ footer svg{
   stroke:#fff;
   opacity:0.8;
 }
-/* ================= CARRINHO ================= */
-#cartPanel{
-  position:fixed;
-  right:-100%;
-  top:0;
-  width:350px;
-  height:100%;
-  background:#F6F1EA;
-  z-index:2000;
-  box-shadow:-4px 0 25px rgba(0,0,0,0.15);
-  transition:0.4s ease;
-  display:flex;
-  flex-direction:column;
-}
 
-#cartPanel .cart-header{
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid rgba(0,0,0,0.1);
-  letter-spacing:0.2em;
-}
-
-#cartItems{
-  flex:1;
-  padding:20px;
-  overflow-y:auto;
-}
-
-#cartPanel .cart-item{
-  margin-bottom:20px;
-  border-bottom:1px solid rgba(0,0,0,0.1);
-  padding-bottom:10px;
-}
-
-#cartPanel .cart-footer{
-  padding:20px;
-  border-top:1px solid rgba(0,0,0,0.1);
-}
-  svg{
-  width:18px;
-  height:18px;
-  stroke:#B08D57;
-  fill:none;
-  stroke-width:1.5;
-}
-  header svg,
-footer svg{
-  width:18px;
-  height:18px;
-  stroke:#B08D57;
-}
 </style>
 </head>
 
 <body>
-<!-- CARRINHO -->
-<div id="cartPanel">
 
-<div class="cart-header">
-<span>Carrinho</span>
-<span onclick="closeCart()" style="cursor:pointer;">✕</span>
-</div>
-
-<div id="cartItems"></div>
-
-<div class="cart-footer">
-<div id="cartTotal">Total: R$ 0</div>
-<button class="gold">Finalizar</button>
-</div>
-<div class="hero-bg">
-
-<section class="logo-section">
-<img src="logotrivia.png">
-</section>
-
-<section class="hero">
-<h1>Casa Trívia</h1>
-<p>arquitetura olfativa da memória</p>
-</section>
-</div>
-  
 <header>
 
 <div id="menuBtn">☰</div>
@@ -386,7 +317,7 @@ footer svg{
 <div class="icons">
 <div class="search"></div>
 
-<svg viewBox="0 0 24 24" onclick="openCart()" style="cursor:pointer;">
+<svg viewBox="0 0 24 24">
 <circle cx="9" cy="21" r="1"></circle>
 <circle cx="20" cy="21" r="1"></circle>
 <path d="M1 1h4l2 12h13l3-9H6"></path>
@@ -414,7 +345,12 @@ footer svg{
 <!-- ✨ MANIFESTO CASA TRÍVIA -->
 <section class="manifesto">
 “Três caminhos atravessam o silêncio.
-Memória, presença e desejo se encontram no invisível.”
+Memória, presença e desejo se encontram no invisível.
+
+Papoulas não florescem apenas no campo,
+mas também naquilo que se lembra.”
+
+<span>CASA TRÍVIA • ENCRUZILHADA SENSORIAL</span>
 </section>
 
 <!-- ESSENCIAL -->
@@ -424,8 +360,8 @@ Memória, presença e desejo se encontram no invisível.”
 </div>
 
 <div class="card">
-<h3>Chá Branco & Baunilha</h3>
-<div class="notes">Ritual suave.</div>
+<h3>White Tea & Vanilla</h3>
+<div class="notes">Ritual suave de luz e silêncio</div>
 <div class="price">R$ 119</div>
 <div class="pix">R$ 107 com Pix</div>
 
@@ -435,13 +371,13 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Chá Branco & Baunilha',119,this)">Comprar</button>
+<button>Comprar</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Verbena</h3>
-<div class="notes">Frescor verde. Um despertar leve, sem urgência.</div>
+<h3>Wild Verbena</h3>
+<div class="notes">Jardim cítrico em movimento</div>
 <div class="price">R$ 119</div>
 <div class="pix">R$ 107 com Pix</div>
 
@@ -451,13 +387,13 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Verbena',119,this)">Comprar</button>
+<button>Comprar</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Folha de Figo & Bergamota</h3>
-<div class="notes">Luz cítrica sobre o verde profundo.</div>
+<h3>Fig & Vetiver</h3>
+<div class="notes">Terra úmida e memória profunda</div>
 <div class="price">R$ 119</div>
 <div class="pix">R$ 107 com Pix</div>
 
@@ -467,7 +403,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Folha de Figo & Bergamota',119,this)">Comprar</button>
+<button>Comprar</button>
 </div>
 </div>
 
@@ -480,8 +416,8 @@ Memória, presença e desejo se encontram no invisível.”
 </div>
 
 <div class="card">
-<h3>Jardim Silencioso</h3>
-<div class="notes">Sombras verdes em descanso.</div>
+<h3>Silent Garden</h3>
+<div class="notes">Sombras verdes em descanso</div>
 <div class="price">R$ 139</div>
 <div class="pix">R$ 125 com Pix</div>
 
@@ -491,13 +427,13 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Jardim Silencioso',139,this)">Comprar</button>
+<button>Comprar</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Orquídea Negra</h3>
-<div class="notes">Floral escuro. Presença que não se anuncia.</div>
+<h3>Orchid Dust</h3>
+<div class="notes">Flor suspensa no tempo</div>
 <div class="price">R$ 139</div>
 <div class="pix">R$ 125 com Pix</div>
 
@@ -507,13 +443,13 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Orquídea Negra',139,this)">Comprar</button>
+<button>Comprar</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Âmbar & Patchouli</h3>
-<div class="notes">Resina quente em silêncio.</div>
+<h3>Amber Veil</h3>
+<div class="notes">Resina quente em silêncio</div>
 <div class="price">R$ 139</div>
 <div class="pix">R$ 125 com Pix</div>
 
@@ -523,7 +459,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Âmbar & Patchouli',139,this)">Comprar</button>
+<button>Comprar</button>
 </div>
 </div>
 
@@ -536,8 +472,8 @@ Memória, presença e desejo se encontram no invisível.”
 </div>
 
 <div class="card">
-<h3>Jasmim Absoluto</h3>
-<div class="notes">Floral sedutor suspenso no tempo.</div>
+<h3>Black Orchid Noire</h3>
+<div class="notes">Noite aveludada e densa</div>
 <div class="price">R$ 199</div>
 <div class="pix">R$ 179 com Pix</div>
 
@@ -547,13 +483,13 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Jasmim Absoluto',199,this)">Comprar</button>
+<button class="gold">Comprar</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Mirra & Baunilha seca</h3>
-<div class="notes">Incenso antigo. Doçura seca em suspensão.</div>
+<h3>Smoke & Myrrh</h3>
+<div class="notes">Incenso antigo em pedra quente</div>
 <div class="price">R$ 199</div>
 <div class="pix">R$ 179 com Pix</div>
 
@@ -563,13 +499,13 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Mirra & Baunilha seca',199,this)">Comprar</button>
+<button class="gold">Comprar</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Incenso Dourado</h3>
-<div class="notes">Luz dourada em fumaça leve.</div>
+<h3>Golden Incense</h3>
+<div class="notes">Luz dourada em fumaça leve</div>
 <div class="price">R$ 199</div>
 <div class="pix">R$ 179 com Pix</div>
 
@@ -579,7 +515,7 @@ Memória, presença e desejo se encontram no invisível.”
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Incenso Dourado',199,this)">Comprar</button>
+<button class="gold">Comprar</button>
 </div>
 </div>
 
@@ -607,19 +543,11 @@ Memória, presença e desejo se encontram no invisível.”
 </div>
 
 <footer>
-
-<!-- Instagram -->
-<a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-
-<!-- WhatsApp -->
-<a href="#"><svg viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-15.5 5.5L3 21l4-1.5A8.5 8.5 0 1 1 20 11.5z"/></svg></a>
-
-<!-- Email -->
-<a href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></a>
-
-<!-- FACEBOOK -->
-<a href="#"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-4 2-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
-
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 0-14 5l-1 4 4-1a8 8 0 0 0 11-8z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M22 16v3"/></svg>
+<svg viewBox="0 0 24 24"><path d="M18 2h-3"/></svg>
+<svg viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20"/></svg>
 </footer>
 
 <script>
@@ -648,54 +576,6 @@ function dec(el){
   if(num.innerText > 1){
     num.innerText = parseInt(num.innerText) - 1;
   }
-}
-  /* ================= CARRINHO ================= */
-
-let cart = [];
-
-function addToCart(name, price, btn){
-  let qty = parseInt(btn.parentNode.querySelector(".num").innerText);
-
-  let existing = cart.find(item => item.name === name);
-
-  if(existing){
-    existing.qty += qty;
-  } else {
-    cart.push({name, price, qty});
-  }
-
-  updateCart();
-  openCart();
-}
-
-function updateCart(){
-  const cartItems = document.getElementById("cartItems");
-  const totalEl = document.getElementById("cartTotal");
-
-  cartItems.innerHTML = "";
-
-  let total = 0;
-
-  cart.forEach(item => {
-    total += item.price * item.qty;
-
-    cartItems.innerHTML += `
-      <div class="cart-item">
-        <strong>${item.name}</strong><br>
-        ${item.qty} x R$ ${item.price}
-      </div>
-    `;
-  });
-
-  totalEl.innerText = "Total: R$ " + total;
-}
-
-function openCart(){
-  document.getElementById("cartPanel").style.right = "0";
-}
-
-function closeCart(){
-  document.getElementById("cartPanel").style.right = "-100%";
 }
 </script>
 
