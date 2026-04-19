@@ -643,7 +643,7 @@ padding:0;
 <div class="num">1</div>
 <div onclick="inc(this)">+</div>
 </div>
-<button onclick="addToCart('Mirra & Baunilha seca', 139, this)">Comprar</button>
+<button onclick="addToCart('Mirra & Baunilha seca', 199, this)">Comprar</button>
 </div>
 </div>
 
@@ -663,7 +663,7 @@ padding:0;
 
 <button class="gold">Comprar</button>
 
-<button onclick="addToCart('Mirra & Baunilha seca', 199, this)" style="
+<button onclick="addToCart('Incenso Dourado', 199, this)" style="
 background:#8B6F47;
 display:flex;
 align-items:center;
@@ -760,17 +760,39 @@ function closeCart(){
 function addToCart(name, price, el){
 
   let qty = parseInt(
-    el.parentNode.querySelector(".num").innerText
+    el.parentNode.parentNode.querySelector(".num").innerText
   );
 
-  cart.push({
-    name: name,
-    price: price,
-    qty: qty
-  });
+  // verifica se o produto já existe
+  let existing = cart.find(item => item.name === name);
+
+  if(existing){
+    existing.qty += qty; // soma quantidade
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      qty: qty
+    });
+  }
 
   updateCart();
   openCart();
+
+  // FEEDBACK VISUAL
+  let btn = el;
+  let original = btn.innerHTML;
+
+  btn.innerHTML = "✓";
+  btn.style.background = "#3F4A33";
+
+  setTimeout(()=>{
+    btn.innerHTML = original;
+    btn.style.background = "#8B6F47";
+  }, 800);
+}
+
+
 }
 
 function updateCart(){
