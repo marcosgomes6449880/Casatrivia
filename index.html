@@ -403,6 +403,44 @@ footer svg{
 .trash svg:hover{
   opacity:1;
 }
+  .cart-summary{
+  margin-top:20px;
+  padding-top:15px;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+
+.cart-summary .line{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.cart-summary .pix{
+  font-size:13px;
+  opacity:0.7;
+}
+
+.checkout{
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+
+  background:#3F4A33;
+  color:#fff;
+  border:none;
+
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  font-size:12px;
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.checkout:hover{
+  background:#2f3826;
+}
   
 </style>
   
@@ -920,7 +958,12 @@ function updateCart(){
 
   container.innerHTML = "";
 
+  let total = 0;
+
   cart.forEach((item, index) => {
+
+    total += item.qty * item.price;
+
     container.innerHTML += `
       <div class="cart-item">
 
@@ -953,6 +996,27 @@ function updateCart(){
       </div>
     `;
   });
+
+  // 🔥 RESUMO FINAL
+  let pixTotal = total * 0.9;
+
+  container.innerHTML += `
+    <div class="cart-summary">
+
+      <div class="line">
+        <span>Total</span>
+        <span>R$ ${total.toFixed(2)}</span>
+      </div>
+
+      <div class="line pix">
+        <span>Pix (-10%)</span>
+        <span>R$ ${pixTotal.toFixed(2)}</span>
+      </div>
+
+      <button class="checkout">Finalizar compra</button>
+
+    </div>
+  `;
 
   updateCartCount();
   }
