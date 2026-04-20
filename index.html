@@ -1009,7 +1009,7 @@ function dec(el){
   }
 }
 
-// CARRINHO ABRIR/FECHAR
+// ABRIR / FECHAR CARRINHO
 function openCart(){
   document.getElementById("cartPanel").style.right = "0px";
 }
@@ -1068,24 +1068,59 @@ function addToCart(name, price, el){
   }, 800);
 }
 
-// ATUALIZA CARRINHO
+// ATUALIZAR CARRINHO
 function updateCart(){
-  let container = document.getElementById("cartItems");
-
+  const container = document.getElementById("cartItems");
   container.innerHTML = "";
 
   let total = 0;
 
-  // CARRINHO VAZIO
   if(cart.length === 0){
     container.innerHTML = `
       <div class="empty-cart">
         Seu carrinho está vazio
       </div>
     `;
-    updateCartCount();
     return;
   }
+
+  cart.forEach((item, index) => {
+
+    if(item.selected){
+      total += item.price * item.qty;
+    }
+
+    container.innerHTML += `
+      <div class="cart-item">
+
+        <div class="left">
+          <div class="select-circle ${item.selected ? 'active' : ''}" 
+               onclick="toggleSelect(${index})"></div>
+        </div>
+
+        <div class="middle" style="${!item.selected ? 'opacity:0.4;' : ''}">
+          <strong>${item.name}</strong>
+          <div>${item.qty}x R$ ${item.price}</div>
+          <div>Total: R$ ${item.qty * item.price}</div>
+
+          <div class="qty-cart">
+            <div onclick="changeQty(${index}, -1)">-</div>
+            <div>${item.qty}</div>
+            <div onclick="changeQty(${index}, 1)">+</div>
+          </div>
+        </div>
+
+        <div class="trash" onclick="removeItem(${index})">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 6h18"/>
+            <path d="M8 6v-2h8v2"/>
+            <path d="M19 6l-1 14H6L5 6"/>
+          </svg>
+        </div>
+
+      </div>
+    `;
+  });
 
   // ITENS
   cart.forEach((item, index) => {
@@ -1172,6 +1207,7 @@ function changeQty(index, change){
 function removeItem(index){
   cart.splice(index, 1);
   updateCart();
+  updateCartCount();
 }
 
 // CONTADOR (bolinha laranja)
