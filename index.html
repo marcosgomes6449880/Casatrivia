@@ -1160,17 +1160,6 @@ function addToCart(name, price, el){
     el.style.background = "transparent";
   }, 800);
 }
-  // feedback visual
- function showToast(){
-  const toast = document.getElementById("toast");
-
-  toast.innerText = "Adicionado ao carrinho";
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  }, 2000);
-}
 
 // ATUALIZAR CARRINHO
 function updateCart(){
