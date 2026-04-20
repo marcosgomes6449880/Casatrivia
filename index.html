@@ -60,7 +60,24 @@ header{
   gap:14px;
   align-items:center;
 }
+  
+#cartCount{
+  position:absolute;
+  top:-6px;
+  right:-8px;
 
+  background:#E67E22; /* laranja elegante */
+  color:#fff;
+
+  font-size:10px;
+  font-weight:bold;
+
+  padding:2px 6px;
+  border-radius:10px;
+
+  display:none; /* começa escondido */
+}
+  
 /* LUPA */
 .search{
   width:16px;
@@ -355,13 +372,18 @@ footer svg{
 <div class="icons">
 <div class="search"></div>
 
-<svg viewBox="0 0 24 24" onclick="openCart()" style="cursor:pointer;">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
+<div style="position:relative; cursor:pointer;" onclick="openCart()">
+
+  <svg viewBox="0 0 24 24">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2 12h13l3-9H6"></path>
+  </svg>
+
+  <div id="cartCount">0</div>
 
 </div>
+
 
 </header>
 
@@ -838,19 +860,49 @@ function addToCart(name, price, el){
 
 function updateCart(){
   let container = document.getElementById("cartItems");
+  let count = document.getElementById("cartCount");
 
   container.innerHTML = "";
 
-  cart.forEach(item => {
+  let totalItems = 0;
+
+  cart.forEach((item, index) => {
+
+    totalItems += item.qty;
+
     container.innerHTML += `
-      <div style="margin-bottom:15px;">
-        <strong>${item.name}</strong><br>
-        ${item.qty}x R$ ${item.price}<br>
-        Total: R$ ${item.qty * item.price}
+      <div style="margin-bottom:15px; display:flex; justify-content:space-between; align-items:center;">
+        
+        <div>
+          <strong>${item.name}</strong><br>
+          ${item.qty}x R$ ${item.price}<br>
+          Total: R$ ${item.qty * item.price}
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          
+          <!-- botão selecionar -->
+          <input type="checkbox" checked>
+
+          <!-- botão excluir -->
+          <span onclick="removeItem(${index})" style="cursor:pointer;">
+            🗑️
+          </span>
+
+        </div>
+
       </div>
     `;
   });
-}
+
+  // 🔥 Atualiza bolinha
+  if(totalItems > 0){
+    count.style.display = "block";
+    count.innerText = totalItems;
+  } else {
+    count.style.display = "none";
+  }
+  }
   function showToast(){
   const toast = document.getElementById("toast");
 
@@ -861,7 +913,11 @@ function updateCart(){
   }, 2000);
     
       }
-  
+  function removeItem(index){
+  cart.splice(index, 1);
+  updateCart();
+    
+  }
 </script>
   
 <div id="toast">Adicionado ao carrinho</div>
