@@ -472,6 +472,52 @@ footer svg{
   padding:20px;
   font-size:14px;
 }
+  .product-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  margin-bottom:12px;
+  border-radius:2px;
+  }
+
+  .collection{
+  max-width:1100px;
+  margin:0 auto;
+  padding:110px 20px;
+}
+
+.collection-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.collection-header h2{
+  font-size:18px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:#3F4A33;
+}
+
+.collection-header p{
+  font-size:12px;
+  opacity:0.6;
+  font-style:italic;
+  margin-top:8px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:35px;
+}
+
+.product-img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  margin-bottom:14px;
+}
+  
 </style>
   
 </head>
@@ -546,370 +592,342 @@ Memória, presença e desejo se encontram no invisível.”
 </section>
 
 <!-- ESSENCIAL -->
-<section class="section">
-<div class="section-header">
-<h2>Essencial</h2>
-</div>
 
-<div class="card">
-  
-<img src="chabrancoebaunilha.png" class="product-img">
+<section class="collection">
 
-  <h3>Chá Branco & Baunilha</h3>
-<div class="notes">Ritual suave.</div>
-<div class="price">R$ 119</div>
-<div class="pix">R$ 107 com Pix</div>
+  <div class="collection-header">
+    <h2>Essencial</h2>
+    <p>fragrâncias de luz e frescor</p>
+  </div>
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+  <div class="products">
 
-<button>Comprar</button>
+    <div class="card">
 
-<button onclick="addToCart('Chá Branco & Baunilha', 119, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+      <img src="chabrancoebaunilha.png" class="product-img">
 
-</div>
+      <h3>Chá Branco & Baunilha</h3>
+      <div class="notes">Ritual suave de luz.</div>
+      <div class="price">R$ 119</div>
+      <div class="pix">R$ 107 com Pix</div>
 
-</div>
+      <div class="actions">
 
-<div class="card">
-  
-<img src="chabrancoebaunilha.png" class="product-img">
+        <div class="qty">
+          <div onclick="dec(this)">-</div>
+          <div class="num">1</div>
+          <div onclick="inc(this)">+</div>
+        </div>
 
-<h3>Verbena</h3>
-<div class="notes">Frescor verde. Um despertar leve, sem urgência.</div>
-<div class="price">R$ 119</div>
-<div class="pix">R$ 107 com Pix</div>
+        <div style="display:flex; gap:10px;">
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+          <button>Comprar</button>
 
-<button>Comprar</button>
+          <button onclick="addToCart('Chá Branco & Baunilha', 119, this)" style="
+            background:#8B6F47;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            padding:0;
+          ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2 12h13l3-9H6"></path>
+            </svg>
+          </button>
 
-<button onclick="addToCart('Verbena', 119, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+        </div>
 
-</div>
-</div>
+      </div>
 
-<div class="card">
+    </div>
 
-<img src="chabrancoebaunilha.png" class="product-img">
+    <div class="card">
 
-<h3>Folha de Figo & Bergamota</h3>
-<div class="notes">Luz cítrica sobre o verde profundo.</div>
-<div class="price">R$ 119</div>
-<div class="pix">R$ 107 com Pix</div>
+      <img src="chabrancoebaunilha.png" class="product-img">
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+      <h3>Verbena</h3>
+      <div class="notes">Frescor verde. Um despertar leve.</div>
+      <div class="price">R$ 119</div>
+      <div class="pix">R$ 107 com Pix</div>
 
-<button>Comprar</button>
+      <div class="actions">
 
-<button onclick="addToCart('Folha de Figo & Bergamota', 119, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+        <div class="qty">
+          <div onclick="dec(this)">-</div>
+          <div class="num">1</div>
+          <div onclick="inc(this)">+</div>
+        </div>
 
-</div>
-</div>
+        <div style="display:flex; gap:10px;">
 
+          <button>Comprar</button>
+
+          <button onclick="addToCart('Verbena', 119, this)" style="
+            background:#8B6F47;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            padding:0;
+          ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2 12h13l3-9H6"></path>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <img src="chabrancoebaunilha.png" class="product-img">
+
+      <h3>Folha de Figo & Bergamota</h3>
+      <div class="notes">Verde profundo com luz cítrica.</div>
+      <div class="price">R$ 119</div>
+      <div class="pix">R$ 107 com Pix</div>
+
+      <div class="actions">
+
+        <div class="qty">
+          <div onclick="dec(this)">-</div>
+          <div class="num">1</div>
+          <div onclick="inc(this)">+</div>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+
+          <button>Comprar</button>
+
+          <button onclick="addToCart('Folha de Figo & Bergamota', 119, this)" style="
+            background:#8B6F47;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            padding:0;
+          ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2 12h13l3-9H6"></path>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </section>
+
+
 
 <!-- ASSINATURA -->
-<section class="section">
-<div class="section-header">
-<h2>Assinatura</h2>
-</div>
 
-<div class="card">
+<section class="collection">
 
-<img src="chabrancoebaunilha.png" class="product-img">
+  <div class="collection-header">
+    <h2>Essencial</h2>
+    <p>fragrâncias de luz e frescor</p>
+  </div>
 
-<h3>Jardim Silencioso</h3>
-<div class="notes">Sombras verdes em descanso.</div>
-<div class="price">R$ 139</div>
-<div class="pix">R$ 125 com Pix</div>
+  <div class="products">
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+    <div class="card">
 
-<button>Comprar</button>
+      <img src="chabrancoebaunilha.png" class="product-img">
 
-<button onclick="addToCart('Jardim Silencioso', 139, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+      <h3>Chá Branco & Baunilha</h3>
+      <div class="notes">Ritual suave de luz.</div>
+      <div class="price">R$ 119</div>
+      <div class="pix">R$ 107 com Pix</div>
 
-</div>
-</div>
+      <div class="actions">
 
-<div class="card">
+        <div class="qty">
+          <div onclick="dec(this)">-</div>
+          <div class="num">1</div>
+          <div onclick="inc(this)">+</div>
+        </div>
 
-<img src="chabrancoebaunilha.png" class="product-img">
+        <div style="display:flex; gap:10px;">
 
-<h3>Orquídea Negra</h3>
-<div class="notes">Floral escuro. Presença que não se anuncia.</div>
-<div class="price">R$ 139</div>
-<div class="pix">R$ 125 com Pix</div>
+          <button>Comprar</button>
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+          <button onclick="addToCart('Chá Branco & Baunilha', 119, this)" style="
+            background:#8B6F47;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            padding:0;
+          ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2 12h13l3-9H6"></path>
+            </svg>
+          </button>
 
-<button>Comprar</button>
+        </div>
 
-<button onclick="addToCart('Orquídea Negra', 139, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+      </div>
 
-</div>
+    </div>
 
-</div>
+    <div class="card">
 
-<div class="card">
+      <img src="chabrancoebaunilha.png" class="product-img">
 
-<img src="chabrancoebaunilha.png" class="product-img">
-  
-<h3>Âmbar & Patchouli</h3>
-<div class="notes">Resina quente em silêncio.</div>
-<div class="price">R$ 139</div>
-<div class="pix">R$ 125 com Pix</div>
+      <h3>Verbena</h3>
+      <div class="notes">Frescor verde. Um despertar leve.</div>
+      <div class="price">R$ 119</div>
+      <div class="pix">R$ 107 com Pix</div>
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+      <div class="actions">
 
-<button>Comprar</button>
+        <div class="qty">
+          <div onclick="dec(this)">-</div>
+          <div class="num">1</div>
+          <div onclick="inc(this)">+</div>
+        </div>
 
-<button onclick="addToCart('Âmbar & Patchouli', 139, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+        <div style="display:flex; gap:10px;">
 
-</div>
-</div>
+          <button>Comprar</button>
 
+          <button onclick="addToCart('Verbena', 119, this)" style="
+            background:#8B6F47;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            padding:0;
+          ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2 12h13l3-9H6"></path>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <img src="chabrancoebaunilha.png" class="product-img">
+
+      <h3>Folha de Figo & Bergamota</h3>
+      <div class="notes">Verde profundo com luz cítrica.</div>
+      <div class="price">R$ 119</div>
+      <div class="pix">R$ 107 com Pix</div>
+
+      <div class="actions">
+
+        <div class="qty">
+          <div onclick="dec(this)">-</div>
+          <div class="num">1</div>
+          <div onclick="inc(this)">+</div>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+
+          <button>Comprar</button>
+
+          <button onclick="addToCart('Folha de Figo & Bergamota', 119, this)" style="
+            background:#8B6F47;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            padding:0;
+          ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2 12h13l3-9H6"></path>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
+  
+
 <!-- EXCLUSIVA -->
-<section class="section">
-<div class="section-header">
-<h2>Exclusiva</h2>
-</div>
 
-<div class="card">
-  
-<img src="jasmimabsoluto.png" class="product-img">
-  
-<h3>Jasmim Absoluto</h3>
-<div class="notes">Floral Sedutor suspenso no tempo.</div>
-<div class="price">R$ 199</div>
-<div class="pix">R$ 179 com Pix</div>
+<section class="collection">
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+  <div class="collection-header">
+    <h2>Exclusiva</h2>
+    <p>rituais escuros e dourados</p>
+  </div>
 
-<button class="gold">Comprar</button>
+  <div class="products">
 
-<button onclick="addToCart('Jasmim Absoluto', 199, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+    <div class="card">
 
-</div>
-</div>
+      <img src="jasmimabsoluto.png" class="product-img">
 
-<div class="card">
+      <h3>Jasmim Absoluto</h3>
+      <div class="notes">Floral sedutor suspenso no tempo.</div>
+      <div class="price">R$ 199</div>
+      <div class="pix">R$ 179 com Pix</div>
 
-<img src="jasmimabsoluto.png" class="product-img">
-  
-<h3>Mirra & Baunilha seca</h3>
-<div class="notes">Incenso antigo. Doçura seca em suspensão.</div>
-<div class="price">R$ 199</div>
-<div class="pix">R$ 179 com Pix</div>
+    </div>
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+    <div class="card">
 
-<button class="gold">Comprar</button>
+      <img src="jasmimabsoluto.png" class="product-img">
 
-<button onclick="addToCart('Mirra & Baunilha seca', 199, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+      <h3>Mirra & Baunilha Seca</h3>
+      <div class="notes">Incenso antigo, doce e seco.</div>
+      <div class="price">R$ 199</div>
+      <div class="pix">R$ 179 com Pix</div>
 
-</div>
-</div>
+    </div>
 
-<div class="card">
-  
-<img src="jasmimabsoluto.png" class="product-img">
-  
-<h3>Incenso Dourado</h3>
-<div class="notes">Luz dourada em fumaça leve.</div>
-<div class="price">R$ 199</div>
-<div class="pix">R$ 179 com Pix</div>
+    <div class="card">
 
-<div class="actions">
-<div class="qty">
-<div onclick="dec(this)">-</div>
-<div class="num">1</div>
-<div onclick="inc(this)">+</div>
-</div>
-<div style="display:flex; gap:10px;">
+      <img src="jasmimabsoluto.png" class="product-img">
 
-<button class="gold">Comprar</button>
+      <h3>Incenso Dourado</h3>
+      <div class="notes">Luz dourada em fumaça leve.</div>
+      <div class="price">R$ 199</div>
+      <div class="pix">R$ 179 com Pix</div>
 
-<button onclick="addToCart('Incenso Dourado', 199, this)" style="
-background:#8B6F47;
-display:flex;
-align-items:center;
-justify-content:center;
-width:36px;
-height:36px;
-padding:0;
-">
-<svg viewBox="0 0 24 24">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2 12h13l3-9H6"></path>
-</svg>
-</button>
+    </div>
 
-</div>
-</div>
+  </div>
+
+</section>
 
 </section>
 
