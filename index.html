@@ -1040,16 +1040,7 @@ function updateCart(){
 
   updateCartCount();
   }
-
-
-  // 🔥 Atualiza bolinha
-  if(totalItems > 0){
-    count.style.display = "block";
-    count.innerText = totalItems;
-  } else {
-    count.style.display = "none";
-  }
-  }
+  
   function showToast(){
   const toast = document.getElementById("toast");
 
@@ -1074,11 +1065,6 @@ function updateCart(){
   updateCart();
 }
 
-function removeItem(index){
-  cart.splice(index, 1);
-  updateCart();
-}
-
 function toggleSelect(el){
   el.classList.toggle("active");
   }
@@ -1094,7 +1080,7 @@ function toggleSelect(el){
   } else {
     count.style.display = "none";
   }
-  
+}  
 </script>
   
 <div id="toast">Adicionado ao carrinho</div>
