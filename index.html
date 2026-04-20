@@ -345,6 +345,64 @@ footer svg{
   opacity:1;
   transform:translateX(-50%) translateY(0);
 }
+  .cart-item{
+  display:flex;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+.left{
+  display:flex;
+  align-items:flex-start;
+}
+
+/* 🔘 círculo seletor */
+.select-circle{
+  width:16px;
+  height:16px;
+  border:1.5px solid #3F4A33;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.select-circle.active{
+  background:#3F4A33;
+}
+
+/* conteúdo */
+.middle{
+  flex:1;
+  font-size:13px;
+}
+
+/* quantidade dentro do carrinho */
+.qty-cart{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+
+.qty-cart div{
+  border:1px solid rgba(0,0,0,0.2);
+  padding:4px 8px;
+  cursor:pointer;
+}
+
+/* lixeira elegante */
+.trash svg{
+  width:16px;
+  height:16px;
+  stroke:#1C1C1C;
+  fill:none;
+  stroke-width:1.5;
+  cursor:pointer;
+  opacity:0.6;
+}
+
+.trash svg:hover{
+  opacity:1;
+}
   
 </style>
   
@@ -857,43 +915,48 @@ function addToCart(name, price, el){
   }, 800);
 }
 
-
 function updateCart(){
   let container = document.getElementById("cartItems");
-  let count = document.getElementById("cartCount");
 
   container.innerHTML = "";
 
-  let totalItems = 0;
-
   cart.forEach((item, index) => {
-
-    totalItems += item.qty;
-
     container.innerHTML += `
-      <div style="margin-bottom:15px; display:flex; justify-content:space-between; align-items:center;">
-        
-        <div>
-          <strong>${item.name}</strong><br>
-          ${item.qty}x R$ ${item.price}<br>
-          Total: R$ ${item.qty * item.price}
+      <div class="cart-item">
+
+        <div class="left">
+          <div class="select-circle" onclick="toggleSelect(this)"></div>
         </div>
 
-        <div style="display:flex; gap:10px; align-items:center;">
-          
-          <!-- botão selecionar -->
-          <input type="checkbox" checked>
+        <div class="middle">
+          <strong>${item.name}</strong>
+          <div>${item.qty}x R$ ${item.price}</div>
+          <div>Total: R$ ${item.qty * item.price}</div>
 
-          <!-- botão excluir -->
-          <span onclick="removeItem(${index})" style="cursor:pointer;">
-            🗑️
-          </span>
+          <div class="qty-cart">
+            <div onclick="changeQty(${index}, -1)">-</div>
+            <div>${item.qty}</div>
+            <div onclick="changeQty(${index}, 1)">+</div>
+          </div>
+        </div>
 
+        <div class="right">
+          <div class="trash" onclick="removeItem(${index})">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 6h18"/>
+              <path d="M8 6V4h8v2"/>
+              <path d="M6 6l1 14h10l1-14"/>
+            </svg>
+          </div>
         </div>
 
       </div>
     `;
   });
+
+  updateCartCount();
+  }
+
 
   // 🔥 Atualiza bolinha
   if(totalItems > 0){
@@ -918,6 +981,36 @@ function updateCart(){
   updateCart();
     
   }
+  function changeQty(index, change){
+  if(cart[index].qty + change <= 0){
+    cart.splice(index, 1);
+  } else {
+    cart[index].qty += change;
+  }
+  updateCart();
+}
+
+function removeItem(index){
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function toggleSelect(el){
+  el.classList.toggle("active");
+  }
+  function updateCartCount(){
+  const count = document.getElementById("cartCount");
+
+  let total = 0;
+  cart.forEach(item => total += item.qty);
+
+  if(total > 0){
+    count.style.display = "block";
+    count.innerText = total;
+  } else {
+    count.style.display = "none";
+  }
+  
 </script>
   
 <div id="toast">Adicionado ao carrinho</div>
