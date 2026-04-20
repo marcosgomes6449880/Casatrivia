@@ -890,6 +890,7 @@ padding:0;
 </footer>
 
 <script>
+<script>
 const menu = document.getElementById("sideMenu");
 const btn = document.getElementById("menuBtn");
 
@@ -905,6 +906,7 @@ function closeMenu(){
   }
 }
 
+// QUANTIDADE (cards)
 function inc(el){
   let num = el.parentNode.querySelector(".num");
   num.innerText = parseInt(num.innerText) + 1;
@@ -912,42 +914,47 @@ function inc(el){
 
 function dec(el){
   let num = el.parentNode.querySelector(".num");
-  if(num.innerText > 1){
+  if(parseInt(num.innerText) > 1){
     num.innerText = parseInt(num.innerText) - 1;
   }
 }
-  function openCart(){
+
+// CARRINHO ABRIR/FECHAR
+function openCart(){
   document.getElementById("cartPanel").style.right = "0px";
 }
 
 function closeCart(){
   document.getElementById("cartPanel").style.right = "-320px";
 }
-  let cart = [];
 
+// ESTADO DO CARRINHO
+let cart = [];
+
+// ADICIONAR ITEM
 function addToCart(name, price, el){
 
   let qty = parseInt(
     el.parentNode.parentNode.querySelector(".num").innerText
   );
 
-  // verifica se o produto já existe
   let existing = cart.find(item => item.name === name);
 
   if(existing){
-    existing.qty += qty; // soma quantidade
+    existing.qty += qty;
   } else {
     cart.push({
       name: name,
       price: price,
-      qty: qty
+      qty: qty,
+      selected: true // 🔥 começa selecionado
     });
   }
 
   updateCart();
   showToast();
-  
-  // FEEDBACK VISUAL
+
+  // feedback visual
   let btn = el;
   let original = btn.innerHTML;
 
@@ -960,6 +967,7 @@ function addToCart(name, price, el){
   }, 800);
 }
 
+// ATUALIZA CARRINHO
 function updateCart(){
   let container = document.getElementById("cartItems");
 
@@ -967,31 +975,33 @@ function updateCart(){
 
   let total = 0;
 
-  // 👉 SE ESTIVER VAZIO
+  // CARRINHO VAZIO
   if(cart.length === 0){
     container.innerHTML = `
       <div class="empty-cart">
         Seu carrinho está vazio
       </div>
     `;
-
     updateCartCount();
     return;
   }
 
-  // 👉 SE TIVER ITENS
+  // ITENS
   cart.forEach((item, index) => {
 
-    total += item.qty * item.price;
+    if(item.selected){
+      total += item.qty * item.price;
+    }
 
     container.innerHTML += `
       <div class="cart-item">
 
         <div class="left">
-          <div class="select-circle" onclick="toggleSelect(this)"></div>
+          <div class="select-circle ${item.selected ? 'active' : ''}" 
+               onclick="toggleSelect(${index})"></div>
         </div>
 
-        <div class="middle">
+        <div class="middle" style="${!item.selected ? 'opacity:0.4;' : ''}">
           <strong>${item.name}</strong>
           <div>${item.qty}x R$ ${item.price}</div>
           <div>Total: R$ ${item.qty * item.price}</div>
@@ -1017,7 +1027,7 @@ function updateCart(){
     `;
   });
 
-  // 👉 RESUMO
+  // RESUMO
   let pixTotal = total * 0.9;
 
   container.innerHTML += `
@@ -1039,24 +1049,16 @@ function updateCart(){
   `;
 
   updateCartCount();
-  }
-  
-  function showToast(){
-  const toast = document.getElementById("toast");
+}
 
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  }, 2000);
-    
-      }
-  function removeItem(index){
-  cart.splice(index, 1);
+// SELECIONAR ITEM
+function toggleSelect(index){
+  cart[index].selected = !cart[index].selected;
   updateCart();
-    
-  }
-  function changeQty(index, change){
+}
+
+// ALTERAR QUANTIDADE NO CARRINHO
+function changeQty(index, change){
   if(cart[index].qty + change <= 0){
     cart.splice(index, 1);
   } else {
@@ -1065,10 +1067,14 @@ function updateCart(){
   updateCart();
 }
 
-function toggleSelect(el){
-  el.classList.toggle("active");
-  }
-  function updateCartCount(){
+// REMOVER ITEM
+function removeItem(index){
+  cart.splice(index, 1);
+  updateCart();
+}
+
+// CONTADOR (bolinha laranja)
+function updateCartCount(){
   const count = document.getElementById("cartCount");
 
   let total = 0;
@@ -1080,7 +1086,19 @@ function toggleSelect(el){
   } else {
     count.style.display = "none";
   }
-}  
+}
+
+// TOAST
+function showToast(){
+  const toast = document.getElementById("toast");
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 2000);
+}
+</script>
 </script>
   
 <div id="toast">Adicionado ao carrinho</div>
