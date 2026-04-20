@@ -979,8 +979,8 @@ Memória, presença e desejo se encontram no invisível.”
 <a href="#"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-4 2-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
 
 </footer>
-
 <script>
+// MENU
 const menu = document.getElementById("sideMenu");
 const btn = document.getElementById("menuBtn");
 
@@ -993,19 +993,6 @@ if(btn && menu){
 function closeMenu(){
   if(menu){
     menu.style.left = "-100%";
-  }
-}
-
-// QUANTIDADE (cards)
-function inc(el){
-  let num = el.parentNode.querySelector(".num");
-  num.innerText = parseInt(num.innerText) + 1;
-}
-
-function dec(el){
-  let num = el.parentNode.querySelector(".num");
-  if(parseInt(num.innerText) > 1){
-    num.innerText = parseInt(num.innerText) - 1;
   }
 }
 
@@ -1024,47 +1011,32 @@ let cart = [];
 // ADICIONAR ITEM
 function addToCart(name, price, el){
 
-  let qty = 1; // como agora não tem mais seletor de quantidade
-
   let existing = cart.find(item => item.name === name);
 
   if(existing){
-    existing.qty += qty;
+    existing.qty += 1;
   } else {
     cart.push({
       name: name,
       price: price,
-      qty: qty,
+      qty: 1,
       selected: true
     });
   }
 
   updateCart();
-  showToast();
+  updateCartCount();
+  showToast(name);
 
   // feedback visual
-  let btn = el;
-  let original = btn.innerHTML;
+  let original = el.innerHTML;
 
-  btn.innerHTML = "✓";
-
-  setTimeout(()=>{
-    btn.innerHTML = original;
-  }, 600);
-}
-  updateCart();
-  showToast();
-
-  // feedback visual
-  let btn = el;
-  let original = btn.innerHTML;
-
-  btn.innerHTML = "✓";
-  btn.style.background = "#3F4A33";
+  el.innerHTML = "✓";
+  el.style.background = "#3F4A33";
 
   setTimeout(()=>{
-    btn.innerHTML = original;
-    btn.style.background = "#8B6F47";
+    el.innerHTML = original;
+    el.style.background = "transparent";
   }, 800);
 }
 
@@ -1075,15 +1047,18 @@ function updateCart(){
 
   let total = 0;
 
+  // carrinho vazio
   if(cart.length === 0){
     container.innerHTML = `
       <div class="empty-cart">
         Seu carrinho está vazio
       </div>
     `;
+    updateCartCount();
     return;
   }
 
+  // render itens
   cart.forEach((item, index) => {
 
     if(item.selected){
@@ -1101,7 +1076,7 @@ function updateCart(){
         <div class="middle" style="${!item.selected ? 'opacity:0.4;' : ''}">
           <strong>${item.name}</strong>
           <div>${item.qty}x R$ ${item.price}</div>
-          <div>Total: R$ ${item.qty * item.price}</div>
+          <div>Total: R$ ${(item.qty * item.price).toFixed(2)}</div>
 
           <div class="qty-cart">
             <div onclick="changeQty(${index}, -1)">-</div>
@@ -1122,48 +1097,7 @@ function updateCart(){
     `;
   });
 
-  // ITENS
-  cart.forEach((item, index) => {
-
-    if(item.selected){
-      total += item.qty * item.price;
-    }
-
-    container.innerHTML += `
-      <div class="cart-item">
-
-        <div class="left">
-          <div class="select-circle ${item.selected ? 'active' : ''}" 
-               onclick="toggleSelect(${index})"></div>
-        </div>
-
-        <div class="middle" style="${!item.selected ? 'opacity:0.4;' : ''}">
-          <strong>${item.name}</strong>
-          <div>${item.qty}x R$ ${item.price}</div>
-          <div>Total: R$ ${item.qty * item.price}</div>
-
-          <div class="qty-cart">
-            <div onclick="changeQty(${index}, -1)">-</div>
-            <div>${item.qty}</div>
-            <div onclick="changeQty(${index}, 1)">+</div>
-          </div>
-        </div>
-
-        <div class="right">
-          <div class="trash" onclick="removeItem(${index})">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 6h18"/>
-              <path d="M8 6V4h8v2"/>
-              <path d="M6 6l1 14h10l1-14"/>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    `;
-  });
-
-  // RESUMO
+  // resumo
   let pixTotal = total * 0.9;
 
   container.innerHTML += `
@@ -1179,12 +1113,10 @@ function updateCart(){
         <span>R$ ${pixTotal.toFixed(2)}</span>
       </div>
 
-      <button class="checkout">Finalizar compra</button>
+      <button class="checkout" onclick="checkoutWhatsApp()">Finalizar compra</button>
 
     </div>
   `;
-
-  updateCartCount();
 }
 
 // SELECIONAR ITEM
@@ -1193,7 +1125,7 @@ function toggleSelect(index){
   updateCart();
 }
 
-// ALTERAR QUANTIDADE NO CARRINHO
+// ALTERAR QUANTIDADE
 function changeQty(index, change){
   if(cart[index].qty + change <= 0){
     cart.splice(index, 1);
@@ -1201,6 +1133,7 @@ function changeQty(index, change){
     cart[index].qty += change;
   }
   updateCart();
+  updateCartCount();
 }
 
 // REMOVER ITEM
@@ -1210,7 +1143,7 @@ function removeItem(index){
   updateCartCount();
 }
 
-// CONTADOR (bolinha laranja)
+// CONTADOR
 function updateCartCount(){
   const count = document.getElementById("cartCount");
 
@@ -1226,16 +1159,46 @@ function updateCartCount(){
 }
 
 // TOAST
-function showToast(){
+function showToast(name){
   const toast = document.getElementById("toast");
 
+  toast.innerText = `${name} adicionado ao carrinho`;
   toast.classList.add("show");
 
   setTimeout(()=>{
     toast.classList.remove("show");
   }, 2000);
 }
-  document.querySelectorAll(".products-carousel").forEach((carousel, i) => {
+
+// CHECKOUT WHATSAPP
+function checkoutWhatsApp(){
+
+  if(cart.length === 0){
+    alert("Seu carrinho está vazio");
+    return;
+  }
+
+  let message = "🕯️ *Pedido - Casa Trívia*%0A%0A";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    if(item.selected){
+      message += `• ${item.name} (${item.qty}x) - R$ ${item.price * item.qty}%0A`;
+      total += item.price * item.qty;
+    }
+  });
+
+  message += `%0A💰 Total: R$ ${total.toFixed(2)}`;
+  message += `%0A💳 Pix: R$ ${(total * 0.9).toFixed(2)}`;
+
+  const phone = "5599999999999"; // 🔥 TROQUE PELO SEU NÚMERO
+
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+
+// CARROSSEL
+document.querySelectorAll(".products-carousel").forEach((carousel) => {
 
   const track = carousel.querySelector(".products-track");
   const dotsContainer = carousel.querySelector(".dots");
@@ -1243,7 +1206,6 @@ function showToast(){
   const cards = track.children;
   const total = cards.length;
 
-  // cria dots
   for(let i = 0; i < total; i++){
     let dot = document.createElement("button");
     if(i === 0) dot.classList.add("active");
@@ -1260,21 +1222,16 @@ function showToast(){
 
   const dots = dotsContainer.querySelectorAll("button");
 
-  // atualiza dots no scroll
   track.addEventListener("scroll", () => {
-
     let index = Math.round(track.scrollLeft / cards[0].offsetWidth);
 
     dots.forEach(d => d.classList.remove("active"));
     if(dots[index]) dots[index].classList.add("active");
-
   });
 
 });
-  
 </script>
-  
-<div id="toast">Adicionado ao carrinho</div>
+            
 
 </body>
 </html>
