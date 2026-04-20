@@ -448,7 +448,30 @@ footer svg{
   opacity:0.6;
   letter-spacing:0.05em;
   }
-  
+  .cart-header{
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:#EAE4DA; /* tom levemente diferente do fundo */
+  font-size:14px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+
+/* linha separadora */
+.cart-divider{
+  border:0;
+  border-top:1px solid rgba(0,0,0,0.08);
+  margin:0;
+}
+
+/* área dos itens */
+#cartItems{
+  padding:20px;
+  font-size:14px;
+}
 </style>
   
 </head>
@@ -457,9 +480,20 @@ footer svg{
 <!-- CARRINHO -->
 <div id="cartPanel">
 
-<div style="padding:20px; display:flex; justify-content:space-between;">
-<span>Carrinho</span>
-<span onclick="closeCart()" style="cursor:pointer;">✕</span>
+  <!-- HEADER DO CARRINHO -->
+  <div class="cart-header">
+
+    <span>Carrinho</span>
+    <span onclick="closeCart()" style="cursor:pointer;">✕</span>
+
+  </div>
+
+  <!-- LINHA SEPARADORA -->
+  <hr class="cart-divider">
+
+  <!-- ITENS -->
+  <div id="cartItems"></div>
+
 </div>
   
 <div id="cartItems" style="padding:20px; font-size:14px;"></div>
