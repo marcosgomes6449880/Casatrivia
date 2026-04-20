@@ -1346,7 +1346,8 @@ document.querySelectorAll(".products-carousel").forEach((carousel) => {
   const dots = dotsContainer.querySelectorAll("button");
 
   track.addEventListener("scroll", () => {
-    let index = Math.round(track.scrollLeft / cards[0].offsetWidth);
+   let cardWidth = cards[0].offsetWidth + 20; // gap
+let index = Math.round(track.scrollLeft / cardWidth);
 
     dots.forEach(d => d.classList.remove("active"));
     if(dots[index]) dots[index].classList.add("active");
