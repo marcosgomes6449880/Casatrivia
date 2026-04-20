@@ -659,7 +659,6 @@ footer svg{
 
 </div>
   
-<div id="cartItems" style="padding:20px; font-size:14px;"></div>
 
 </div>
   
@@ -1025,9 +1024,7 @@ let cart = [];
 // ADICIONAR ITEM
 function addToCart(name, price, el){
 
-  let qty = parseInt(
-    el.parentNode.parentNode.querySelector(".num").innerText
-  );
+  let qty = 1; // como agora não tem mais seletor de quantidade
 
   let existing = cart.find(item => item.name === name);
 
@@ -1038,10 +1035,23 @@ function addToCart(name, price, el){
       name: name,
       price: price,
       qty: qty,
-      selected: true // 🔥 começa selecionado
+      selected: true
     });
   }
 
+  updateCart();
+  showToast();
+
+  // feedback visual
+  let btn = el;
+  let original = btn.innerHTML;
+
+  btn.innerHTML = "✓";
+
+  setTimeout(()=>{
+    btn.innerHTML = original;
+  }, 600);
+}
   updateCart();
   showToast();
 
