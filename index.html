@@ -441,6 +441,13 @@ footer svg{
 .checkout:hover{
   background:#2f3826;
 }
+  .empty-cart{
+  text-align:center;
+  padding:40px 20px;
+  font-size:14px;
+  opacity:0.6;
+  letter-spacing:0.05em;
+  }
   
 </style>
   
@@ -960,6 +967,19 @@ function updateCart(){
 
   let total = 0;
 
+  // 👉 SE ESTIVER VAZIO
+  if(cart.length === 0){
+    container.innerHTML = `
+      <div class="empty-cart">
+        Seu carrinho está vazio
+      </div>
+    `;
+
+    updateCartCount();
+    return;
+  }
+
+  // 👉 SE TIVER ITENS
   cart.forEach((item, index) => {
 
     total += item.qty * item.price;
@@ -997,7 +1017,7 @@ function updateCart(){
     `;
   });
 
-  // 🔥 RESUMO FINAL
+  // 👉 RESUMO
   let pixTotal = total * 0.9;
 
   container.innerHTML += `
