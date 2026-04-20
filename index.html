@@ -636,14 +636,44 @@ footer svg{
 
 /* botão carrinho */
 .cart-btn{
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   border:1px solid #8B6F47;
-  background:transparent;
-  cursor:pointer;
+  background:#F6F1EA;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
 }
 
+.cart-btn:hover{
+  background:#3F4A33;
+}
+
+.cart-btn:hover svg{
+  stroke:#fff;
+}
+
+.cart-btn svg{
+  width:20px;
+  height:20px;
+  stroke:#3F4A33;
+  stroke-width:1.8;
+}
+.qty{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:10px;
+}
+
+.qty div{
+  padding:6px 10px;
+  cursor:pointer;
+  border:1px solid rgba(0,0,0,0.2);
+}
 /* ===== DOTS ===== */
 
 .dots{
@@ -1058,7 +1088,10 @@ Memória, presença e desejo se encontram no invisível.”
     </div>
   </div>
 </div>
-      
+        </div>
+    <div class="dots"></div>
+  </div>
+</section>  
       
 
 <!-- MENU -->
