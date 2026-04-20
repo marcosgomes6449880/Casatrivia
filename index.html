@@ -304,6 +304,30 @@ footer svg{
   box-shadow:-8px 0 30px rgba(0,0,0,0.15); /* 🔥 diferença principal */
   border-left:1px solid rgba(0,0,0,0.08);
 }
+  #toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+
+  background:#1C1C1C;
+  color:#fff;
+  padding:12px 20px;
+  font-size:13px;
+  letter-spacing:0.05em;
+
+  border-radius:4px;
+  opacity:0;
+  pointer-events:none;
+
+  transition:0.3s ease;
+  z-index:3000;
+}
+
+#toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
   
 </style>
   
@@ -796,7 +820,8 @@ function addToCart(name, price, el){
   }
 
   updateCart();
-
+  showToast();
+  
   // FEEDBACK VISUAL
   let btn = el;
   let original = btn.innerHTML;
@@ -826,7 +851,20 @@ function updateCart(){
     `;
   });
 }
+  function showToast(){
+  const toast = document.getElementById("toast");
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 2000);
+    
+      }
+  
 </script>
+  
+<div id="toast">Adicionado ao carrinho</div>
 
 </body>
 </html>
