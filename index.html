@@ -1091,15 +1091,20 @@ let cart = [];
 // ADICIONAR ITEM
 function addToCart(name, price, el){
 
+  let card = el.closest(".product-card");
+  let qtyEl = card.querySelector(".qty-value");
+
+  let qty = qtyEl ? parseInt(qtyEl.innerText) : 1;
+
   let existing = cart.find(item => item.name === name);
 
   if(existing){
-    existing.qty += 1;
+    existing.qty += qty;
   } else {
     cart.push({
       name: name,
       price: price,
-      qty: 1,
+      qty: qty,
       selected: true
     });
   }
@@ -1118,6 +1123,22 @@ function addToCart(name, price, el){
     el.innerHTML = original;
     el.style.background = "transparent";
   }, 800);
+}
+
+  updateCart();
+  updateCartCount();
+  showToast();
+
+  // feedback visual
+ function showToast(){
+  const toast = document.getElementById("toast");
+
+  toast.innerText = "Adicionado ao carrinho";
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 2000);
 }
 
 // ATUALIZAR CARRINHO
@@ -1146,6 +1167,8 @@ function updateCart(){
     }
 
     container.innerHTML += `
+  
+      
       <div class="cart-item">
 
         <div class="left">
