@@ -695,8 +695,44 @@ footer svg{
 .dots button.active{
   background:#3F4A33;
   }
+
+.whatsapp-float{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+
+  width:55px;
+  height:55px;
+
+  background:#3F4A33;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+  z-index:9999;
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.08);
+  background:#2f3826;
+}
+
+.whatsapp-float svg{
+  width:26px;
+  height:26px;
+  fill:#fff;
+}
+
+  
   
 </style>
+
+
   
 </head>
 
@@ -1450,6 +1486,17 @@ app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
 </script>
             
 <div id="toast"></div>
+
+<a href="https://wa.me/5512988890464?text=Olá,%20vim%20pelo%20site%20da%20Casa%20Trívia%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20produtos." 
+   target="_blank" 
+   class="whatsapp-float">
+
+  <svg viewBox="0 0 32 32">
+    <path d="M16 .5C7.5.5.5 7.3.5 15.7c0 2.7.7 5.2 2 7.4L.5 31.5l8.6-1.9c2.1 1.1 4.5 1.7 6.9 1.7 8.5 0 15.5-6.8 15.5-15.2C31.5 7.3 24.5.5 16 .5zm0 27.6c-2.2 0-4.3-.6-6.1-1.7l-.4-.2-5.1 1.1 1.1-4.9-.3-.4c-1.3-2-2-4.2-2-6.6 0-6.9 5.8-12.5 12.9-12.5s12.9 5.6 12.9 12.5-5.8 12.5-12.9 12.5zm7-9.4c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.9.2-.3.4-1 1.2-1.3 1.4-.2.2-.5.3-.9.1-.4-.2-1.8-.6-3.4-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7 0-.2-.9-2.2-1.2-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 3s1.3 3.5 1.5 3.7c.2.2 2.6 4 6.4 5.4.9.3 1.6.5 2.1.6.9.1 1.7.1 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+  </svg>
+
+</a>
+  
   
 </body>
 </html>
