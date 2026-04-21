@@ -2,1523 +2,322 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Casa Trívia</title>
 
-<style>
+  <!-- ================= META ================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <!-- ================= TITLE ================= -->
+  <title>Casa Trívia</title>
 
-body{
-  font-family: Georgia, serif;
-  background:#F6F1EA;
-  color:#1C1C1C;
-}
+  <!-- ================= STYLE ================= -->
+  <style>
 
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:70px;
-  background:#3F4A33; /* verde musgo elegante */
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 20px;
-}
+  /* ================= RESET ================= */
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
 
-/* MENU HAMBURGUER */
-#menuBtn{
-  font-size:22px;
-  cursor:pointer;
-  color:#B08D57; /* dourado antigo */
-}
+  /* ================= BODY ================= */
+  body{
+    font-family: Georgia, serif;
+    background:#F6F1EA;
+    color:#1C1C1C;
+  }
 
-/* NOME CASA TRÍVIA */
-.brand{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:12px;
-  letter-spacing:0.25em;
-  text-transform:uppercase;
-  color:#B08D57; /* dourado antigo */
-}
+  /* ================= HEADER ================= */
+  .header{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+    background:#3F4A33;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    z-index:1000;
+  }
 
-/* ICONES */
-.icons{
-  display:flex;
-  gap:14px;
-  align-items:center;
-}
-  
-#cartCount{
-  position:absolute;
-  top:-6px;
-  right:-8px;
+  .brand{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    letter-spacing:0.2em;
+    font-size:12px;
+    color:#B08D57;
+  }
 
-  background:#E67E22; /* laranja elegante */
-  color:#fff;
+  /* ================= HERO ================= */
+  .hero{
+    margin-top:120px;
+    text-align:center;
+  }
 
-  font-size:10px;
-  font-weight:bold;
+  .hero h1{
+    font-size:48px;
+  }
 
-  padding:2px 6px;
-  border-radius:10px;
+  .hero p{
+    font-size:12px;
+    letter-spacing:0.2em;
+  }
 
-  display:none; /* começa escondido */
-}
-  
-/* LUPA */
-.search{
-  width:16px;
-  height:16px;
-  border:1.5px solid #B08D57;
-  border-radius:50%;
-  position:relative;
-}
+  /* ================= CARRINHO ================= */
+  .cart{
+    position:relative;
+    cursor:pointer;
+  }
 
-.search:after{
-  content:"";
-  position:absolute;
-  width:8px;
-  height:1.5px;
-  background:#B08D57;
-  bottom:-4px;
-  right:-4px;
-  transform:rotate(45deg);
-}
+  .cart svg{
+    width:20px;
+    height:20px;
+    stroke:#B08D57;
+    fill:none;
+  }
 
-/* CARRINHO (SVG) */
-svg{
-  width:18px;
-  height:18px;
-  stroke:#B08D57;
-  fill:none;
-  stroke-width:1.5;
-}
-/* HERO FUNDO */
-.hero-bg{
-  background-image:url("fundocasatrivia.png");
-  background-size:cover;
-  background-position:center top;
-  background-repeat:no-repeat;
+  #cartCount{
+    position:absolute;
+    top:-6px;
+    right:-8px;
+    background:#E67E22;
+    color:#fff;
+    font-size:10px;
+    padding:2px 6px;
+    border-radius:10px;
+  }
 
-  margin-top:-40px;
-  padding-top:80px;
-  padding-bottom:120px;
-}
+  /* ================= PRODUTO ================= */
+  .product{
+    padding:60px 20px;
+  }
 
-/* LOGO */
-.logo-section{
-  text-align:center;
-  padding:40px 20px 10px;
-}
-
-.logo-section img{
-  height:310px;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:10px 20px 30px;
-}
-
-.hero h1{
-  font-size:58px;
-  letter-spacing:0.02em;
-}
-
-.hero p{
-  font-size:12px;
-  letter-spacing:0.25em;
-  opacity:0.7;
-  text-transform:uppercase;
-}
-
-/* ✨ MANIFESTO */
-.manifesto{
-  text-align:center;
-  padding:60px 25px;
-  max-width:700px;
-  margin:0 auto;
-  font-style:italic;
-  line-height:1.8;
-  opacity:0.85;
-}
-
-.manifesto span{
-  display:block;
-  margin-top:15px;
-  font-size:11px;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  opacity:0.6;
-}
-
-/* SECTIONS */
-.section{
-  max-width:900px;
-  margin:0 auto;
-  padding:100px 20px;
-}
-
-.section-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:30px;
-}
-
-.section-header h2{
-  font-size:18px;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-}
-
-/* linha simbólica */
-.section-header h2::after{
-  content:"";
-  display:block;
-  width:40px;
-  height:1px;
-  background:#8B6F47;
-  margin-top:8px;
-}
-
-.login{
-  font-size:12px;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  opacity:0.7;
-  cursor:pointer;
-}
-
-/* CARD */
-
-.card{
-  padding:20px;
-  border:1px solid rgba(0,0,0,0.08);
-  background:#F6F1EA;
-  margin-bottom:30px;
-}
-
-.card h3{
-  font-size:18px;
-  letter-spacing:0.02em;
-}
-
-.notes{
-  font-size:13px;
-  opacity:0.65;
-  margin-top:5px;
-  font-style:italic;
-}
-
-.price{
-  font-size:15px;
-  margin-top:6px;
-  font-weight:500;
-}
-
-.pix{
-  font-size:11px;
-  opacity:0.6;
-}
-
-/* ACTIONS */
-.actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-top:10px;
-}
-
-.qty{
-  display:flex;
-  border:1px solid rgba(0,0,0,0.2);
-}
-
-.qty div{
-  padding:6px 10px;
-  cursor:pointer;
-}
-
-button{
-  padding:8px 14px;
-  border:none;
-  background:#1C1C1C;
-  color:#fff;
-  cursor:pointer;
-}
-
-button.gold{
-  background:#8B6F47;
-}
-
-/* MENU */
-#sideMenu{
-  position:fixed;
-  top:0;
-  left:-100%;
-  width:80%;
-  height:100%;
-  background:#F6F1EA;
-  z-index:1000;
-  padding:40px;
-  transition:0.4s ease;
-}
-
-.menu-item{
-  padding:14px 0;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-}
-
-/* ✨ identidade simbólica */
-.menu-item::before{
-  content:"✦ ";
-  opacity:0.5;
-}
-
-hr{
-  border:0;
-  border-top:1px solid rgba(0,0,0,0.08);
-}
-
-/* FOOTER */
-footer{
-  background:#1C1C1C;
-  padding:30px;
-  margin-top:60px;
-  display:flex;
-  justify-content:center;
-  gap:25px;
-}
-
-footer svg{
-  stroke:#fff;
-  opacity:0.8;
-}
-#cartPanel{
-  position:fixed;
-  right:-320px;
-  top:0;
-  width:320px;
-  height:100%;
-  background:#F6F1EA;
-  z-index:2000;
-  transition:0.4s ease;
-
-  box-shadow:-8px 0 30px rgba(0,0,0,0.15); /* 🔥 diferença principal */
-  border-left:1px solid rgba(0,0,0,0.08);
-}
-  #toast{
-  position:fixed;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%) translateY(20px);
-
-  background:#1C1C1C;
-  color:#fff;
-  padding:12px 20px;
-  font-size:13px;
-  letter-spacing:0.05em;
-
-  border-radius:4px;
-  opacity:0;
-  pointer-events:none;
-
-  transition:0.3s ease;
-  z-index:3000;
-}
-
-#toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
-  .cart-item{
-  display:flex;
-  gap:12px;
-  padding:15px 0;
-  border-bottom:1px solid rgba(0,0,0,0.08);
-}
-
-.left{
-  display:flex;
-  align-items:flex-start;
-}
-
-/* 🔘 círculo seletor */
-.select-circle{
-  width:16px;
-  height:16px;
-  border:1.5px solid #3F4A33;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-.select-circle.active{
-  background:#3F4A33;
-}
-
-/* conteúdo */
-.middle{
-  flex:1;
-  font-size:13px;
-}
-
-/* quantidade dentro do carrinho */
-.qty-cart{
-  display:flex;
-  gap:8px;
-  margin-top:8px;
-}
-
-.qty-cart div{
-  border:1px solid rgba(0,0,0,0.2);
-  padding:4px 8px;
-  cursor:pointer;
-}
-.actions{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:12px;
-}
-
-/* mantém botão comprar alinhado */
-.buy-btn{
-  flex:1;
-}
-
-/* agrupa carrinho + quantidade */
-.cart-area{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-left:10px;
-}
   .product-card{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-  .product-info{
-  display:flex;
-  flex-direction:column;
-  height:100%;
-}
-
-.actions{
-  margin-top:auto;
-}
-/* lixeira elegante */
-.trash svg{
-  width:16px;
-  height:16px;
-  stroke:#1C1C1C;
-  fill:none;
-  stroke-width:1.5;
-  cursor:pointer;
-  opacity:0.6;
-}
-
-.trash svg:hover{
-  opacity:1;
-}
-  .cart-summary{
-  margin-top:20px;
-  padding-top:15px;
-  border-top:1px solid rgba(0,0,0,0.1);
-}
-.cart-summary .line{
-  display:flex;
-  justify-content:space-between;
-  font-size:14px;
-  margin-bottom:8px;
-}
-
-.cart-summary .pix{
-  font-size:13px;
-  opacity:0.7;
-}
-
-.checkout{
-  width:100%;
-  margin-top:15px;
-  padding:12px;
-
-  background:#3F4A33;
-  color:#fff;
-  border:none;
-
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  font-size:12px;
-
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.checkout:hover{
-  background:#2f3826;
-}
-  .empty-cart{
-  text-align:center;
-  padding:40px 20px;
-  font-size:14px;
-  opacity:0.6;
-  letter-spacing:0.05em;
+    max-width:300px;
+    margin:auto;
   }
-  .cart-header{
-  padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
 
-  background:#EAE4DA; /* tom levemente diferente do fundo */
-  font-size:14px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-}
-
-/* linha separadora */
-.cart-divider{
-  border:0;
-  border-top:1px solid rgba(0,0,0,0.08);
-  margin:0;
-}
-
-/* área dos itens */
-#cartItems{
-  padding:20px;
-  font-size:14px;
-}
   .product-img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  margin-bottom:14px;
-  border-radius:2px;
+    width:100%;
   }
 
-  .collection{
-  max-width:1100px;
-  margin:0 auto;
-  padding:110px 20px;
-}
-
-.collection-header{
-  text-align:center;
-  margin-bottom:50px;
-}
-
-.collection-header h2{
-  font-size:18px;
-  letter-spacing:0.25em;
-  text-transform:uppercase;
-  color:#3F4A33;
-}
-
-.collection-header p{
-  font-size:12px;
-  opacity:0.6;
-  font-style:italic;
-  margin-top:8px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:35px;
-}
-  
-@media (max-width: 900px){
-  .products{
-    grid-template-columns: 1fr;
-   }
-  }
-  /* ===== CARROSSEL ===== */
-
-.products-carousel{
-  position:relative;
-  overflow:hidden;
-}
-
-.products-track{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding-bottom:15px;
-  scroll-behavior:smooth;
-}
-
-.products-track::-webkit-scrollbar{
-  display:none;
-}
-
-/* ===== CARD ===== */
-
-.product-card{
-  min-width:280px;
-  flex:0 0 auto;
-  background:#F6F1EA;
-  border:1px solid rgba(0,0,0,0.08);
-  padding:15px;
-  scroll-snap-align:start;
-}
-
-.product-img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  margin-bottom:10px;
-}
-
-/* texto */
-.product-info h3{
-  font-size:16px;
-  margin-bottom:4px;
-}
-
-.weight{
-  font-size:11px;
-  opacity:0.6;
-}
-
-.prices{
-  margin-top:8px;
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-}
-
-.prices .old{
-  text-decoration:line-through;
-  font-size:12px;
-  opacity:0.5;
-}
-
-.prices .pix{
-  font-size:12px;
-  color:#3F4A33;
-}
-
-/* botões */
-.actions{
-  display:flex;
-  gap:10px;
-  margin-top:12px;
-}
-
-/* botão comprar */
-.buy-btn{
-  flex:1;
-  border-radius:999px; /* salsicha */
-  background:#3F4A33;
-  color:#fff;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-}
-
-/* botão carrinho */
-.cart-btn{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid #8B6F47;
-  background:#F6F1EA;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:0.3s;
-}
-.cart-btn{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid #8B6F47;
-  background:transparent;
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  transition:0.3s;
-}
-
-.cart-btn:hover{
-  background:#8B6F47;
-}
-
-.cart-btn:hover svg{
-  stroke:#fff;
-}
-  
-.cart-btn:hover{
-  background:#3F4A33;
-}
-
-.cart-btn:hover svg{
-  stroke:#fff;
-}
-
-.cart-btn svg{
-  width:20px;
-  height:20px;
-  stroke:#3F4A33;
-  stroke-width:1.8;
-}
-.qty{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:12px;
-  margin-top:10px;
-}
-
-.qty div{
-  padding:6px 10px;
-  cursor:pointer;
-  border:1px solid rgba(0,0,0,0.2);
-}
-/* ===== DOTS ===== */
-
-.dots{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin-top:15px;
-}
-
-.dots button{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  border:none;
-  background:rgba(0,0,0,0.2);
-  cursor:pointer;
-}
-
-.dots button.active{
-  background:#3F4A33;
+  .product-actions{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
   }
 
-.whatsapp-float{
-  position:fixed;
-  bottom:25px;
-  right:25px;
+  /* ================= BOTÕES ================= */
+  .buy-btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    background:#1C1C1C;
+    color:#fff;
+    cursor:pointer;
+  }
 
-  width:55px;
-  height:55px;
+  .cart-btn{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(139,111,71,0.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:transparent;
+    cursor:pointer;
+    transition:0.3s;
+  }
 
-  background:#3F4A33;
-  border-radius:50%;
+  .cart-btn:hover{
+    background:#3F4A33;
+  }
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  .cart-btn:hover svg{
+    stroke:#fff;
+  }
 
-  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  /* ================= QUANTIDADE ================= */
+  .qty{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+  }
 
-  z-index:9999;
-  transition:0.3s;
-}
+  .qty div{
+    border:1px solid rgba(0,0,0,0.2);
+    padding:5px 10px;
+    cursor:pointer;
+  }
 
-.whatsapp-float:hover{
-  transform:scale(1.08);
-  background:#2f3826;
-}
+  /* ================= WHATSAPP ================= */
+  .whatsapp-float{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+    background:#3F4A33;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  }
 
-.whatsapp-float svg{
-  width:26px;
-  height:26px;
-  fill:#fff;
-}
+  .whatsapp-float svg{
+    width:26px;
+    height:26px;
+    fill:#fff;
+  }
 
-  
-  
-</style>
+  </style>
 
-
-  
 </head>
 
+
 <body>
-<!-- CARRINHO -->
-<div id="cartPanel">
 
-  <!-- HEADER DO CARRINHO -->
-  <div class="cart-header">
+<!-- ================= HEADER ================= -->
+<header class="header">
 
-    <span>Carrinho</span>
-    <span onclick="closeCart()" style="cursor:pointer;">✕</span>
+  <div>☰</div>
 
+  <div class="brand">Casa Trívia</div>
+
+  <div class="cart" onclick="Cart.open()">
+    <svg viewBox="0 0 24 24">
+      <path d="M6 6h15l-1.5 9h-12z"></path>
+      <circle cx="9" cy="20" r="1.5"></circle>
+      <circle cx="18" cy="20" r="1.5"></circle>
+    </svg>
+    <div id="cartCount">0</div>
   </div>
-
-  <!-- LINHA SEPARADORA -->
-  <hr class="cart-divider">
-
-  <!-- ITENS -->
-  <div id="cartItems"></div>
-
-</div>
-  
-
-</div>
-  
-<header>
-
-<div id="menuBtn">☰</div>
-
-<div class="brand">Casa Trívia</div>
-
-<div class="icons">
-<div class="search"></div>
-
-<div style="position:relative; cursor:pointer;" onclick="openCart()">
-
-  <svg viewBox="0 0 24 24">
-    <circle cx="9" cy="21" r="1"></circle>
-    <circle cx="20" cy="21" r="1"></circle>
-    <path d="M1 1h4l2 12h13l3-9H6"></path>
-  </svg>
-
-  <div id="cartCount">0</div>
-
-</div>
-
 
 </header>
 
-<main>
 
-<div class="hero-bg">
-
-<section class="logo-section">
-<img src="logotrivia.png">
-</section>
-
+<!-- ================= HERO ================= -->
 <section class="hero">
-<h1>Casa Trívia</h1>
-<p>arquitetura olfativa da memória</p>
+  <h1>Casa Trívia</h1>
+  <p>arquitetura olfativa da memória</p>
 </section>
 
-</div>
 
-<!-- ✨ MANIFESTO CASA TRÍVIA -->
-<section class="manifesto">
-“Três caminhos atravessam o silêncio.
-Memória, presença e desejo se encontram no invisível.”
-</section>
+<!-- ================= PRODUTO ================= -->
+<section class="product">
 
-<!-- ESSENCIAL -->
-<section class="collection">
-  <div class="collection-header">
-    <h2>Essencial</h2>
-    <p>fragrâncias de luz e frescor</p>
-  </div>
+  <div class="product-card">
 
-  <div class="products-carousel">
-    <div class="products-track">
+    <img src="https://via.placeholder.com/300" class="product-img">
 
-      <!-- 1 -->
-      <div class="product-card">
-        <img src="chabrancoebaunilha.png" class="product-img">
-        <div class="product-info">
-          <h3>Chá Branco & Baunilha</h3>
-          <span class="weight">250g</span>
+    <h3>Chá Branco & Baunilha</h3>
+    <div class="price">R$ 119</div>
 
-          <div class="prices">
-            <span class="old">R$ 119</span>
-            <span class="pix">R$ 107 no Pix</span>
-          </div>
+    <div class="product-actions">
 
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Chá Branco & Baunilha', 119, this)">
-              <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="product-card">
-        <img src="chabrancoebaunilha.png" class="product-img">
-        <div class="product-info">
-          <h3>Verbena</h3>
-          <span class="weight">250g</span>
-
-          <div class="prices">
-            <span class="old">R$ 119</span>
-            <span class="pix">R$ 107 no Pix</span>
-          </div>
-
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Verbena', 119, this)">
-             <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="product-card">
-        <img src="chabrancoebaunilha.png" class="product-img">
-        <div class="product-info">
-          <h3>Folha de Figo & Bergamota</h3>
-          <span class="weight">250g</span>
-
-          <div class="prices">
-            <span class="old">R$ 119</span>
-            <span class="pix">R$ 107 no Pix</span>
-          </div>
-
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Folha de Figo & Bergamota', 119, this)">
-              <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="dots"></div>
-  </div>
-</section>
-
-<!-- ASSINATURA -->
-<section class="collection">
-  <div class="collection-header">
-    <h2>Assinatura</h2>
-    <p>identidade sensorial da Casa Trívia</p>
-  </div>
-
-  <div class="products-carousel">
-    <div class="products-track">
-
-      <!-- 1 -->
-      <div class="product-card">
-        <img src="chabrancoebaunilha.png" class="product-img">
-        <div class="product-info">
-          <h3>Jardim Silencioso</h3>
-          <span class="weight">250g</span>
-
-          <div class="prices">
-            <span class="old">R$ 119</span>
-            <span class="pix">R$ 107 no Pix</span>
-          </div>
-
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Jardim Silencioso', 119, this)">
-             <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="product-card">
-        <img src="chabrancoebaunilha.png" class="product-img">
-        <div class="product-info">
-          <h3>Orquídea Negra</h3>
-          <span class="weight">250g</span>
-
-          <div class="prices">
-            <span class="old">R$ 119</span>
-            <span class="pix">R$ 107 no Pix</span>
-          </div>
-
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Orquídea Negra', 119, this)">
-              <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="product-card">
-        <img src="chabrancoebaunilha.png" class="product-img">
-        <div class="product-info">
-          <h3>Âmbar & Patchouli</h3>
-          <span class="weight">250g</span>
-
-          <div class="prices">
-            <span class="old">R$ 119</span>
-            <span class="pix">R$ 107 no Pix</span>
-          </div>
-
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Âmbar & Patchouli', 119, this)">
-              <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="dots"></div>
-  </div>
-</section>
-
-<!-- EXCLUSIVA -->
-<section class="collection">
-  <div class="collection-header">
-    <h2>Exclusiva</h2>
-    <p>rituais escuros e dourados</p>
-  </div>
-
-  <div class="products-carousel">
-    <div class="products-track">
-
-      <!-- 1 -->
-      <div class="product-card">
-        <img src="jasmimabsoluto.png" class="product-img">
-        <div class="product-info">
-          <h3>Jasmim Absoluto</h3>
-          <span class="weight">250g</span>
-
-          <div class="prices">
-            <span class="old">R$ 199</span>
-            <span class="pix">R$ 179 no Pix</span>
-          </div>
-
-          <div class="actions">
-            <button class="buy-btn">Comprar</button>
-            <button class="cart-btn" onclick="addToCart('Jasmim Absoluto', 199, this)">
-             <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-                <path d="M6 6h15l-1.5 9h-12z"></path>
-                <circle cx="9" cy="20" r="1.5"></circle>
-                <circle cx="18" cy="20" r="1.5"></circle>
-              </svg>
-            </button>
-          </div>
-
-          <div class="qty">
-            <div onclick="dec(this)">−</div>
-            <div class="qty-value">1</div>
-            <div onclick="inc(this)">+</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-<div class="product-card">
-  <img src="jasmimabsoluto.png" class="product-img">
-
-  <div class="product-info">
-    <h3>Mirra & Baunilha Seca</h3>
-    <span class="weight">250g</span>
-
-    <div class="prices">
-      <span class="old">R$ 199</span>
-      <span class="pix">R$ 179 no Pix</span>
-    </div>
-
-    <div class="actions">
       <button class="buy-btn">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('Mirra & Baunilha Seca', 199, this)">
-       <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
+
+      <button class="cart-btn" onclick="Cart.add('Chá Branco',119,this)">
+        <svg viewBox="0 0 24 24">
           <path d="M6 6h15l-1.5 9h-12z"></path>
           <circle cx="9" cy="20" r="1.5"></circle>
           <circle cx="18" cy="20" r="1.5"></circle>
         </svg>
       </button>
+
     </div>
 
     <div class="qty">
-      <div onclick="dec(this)">−</div>
+      <div onclick="Qty.dec(this)">−</div>
       <div class="qty-value">1</div>
-      <div onclick="inc(this)">+</div>
+      <div onclick="Qty.inc(this)">+</div>
     </div>
+
   </div>
-</div>
 
-<!-- 3 -->
-<div class="product-card">
-  <img src="jasmimabsoluto.png" class="product-img">
+</section>
 
-  <div class="product-info">
-    <h3>Incenso Dourado</h3>
-    <span class="weight">250g</span>
 
-    <div class="prices">
-      <span class="old">R$ 199</span>
-      <span class="pix">R$ 179 no Pix</span>
-    </div>
+<!-- ================= WHATSAPP ================= -->
+<a 
+href="https://wa.me/5512988890464?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações."
+class="whatsapp-float"
+target="_blank">
 
-    <div class="actions">
-      <button class="buy-btn">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('Incenso Dourado', 199, this)">
-       <svg viewBox="0 0 24 24"> <path d="M6 6h15l-1.5 9h-12z"></path> <circle cx="9" cy="20" r="1.5"></circle> <circle cx="18" cy="20" r="1.5"></circle> </svg>
-          <path d="M6 6h15l-1.5 9h-12z"></path>
-          <circle cx="9" cy="20" r="1.5"></circle>
-          <circle cx="18" cy="20" r="1.5"></circle>
-        </svg>
-      </button>
-    </div>
-
-    <div class="qty">
-      <div onclick="dec(this)">−</div>
-      <div class="qty-value">1</div>
-      <div onclick="inc(this)">+</div>
-    </div>
-  </div>
-</div>
-        </div>
-    <div class="dots"></div>
-  </div>
-</section>  
-      
-
-<!-- MENU -->
-<div id="sideMenu">
-
-<div style="display:flex; justify-content:space-between; align-items:center;">
-<div style="font-size:22px; cursor:pointer;" onclick="closeMenu()">✕</div>
-<div class="login">Login</div>
-</div>
-
-<div style="margin-top:30px;">
-<div class="menu-item">Velas Aromáticas</div><hr>
-<div class="menu-item">Home Spray</div><hr>
-<div class="menu-item">Difusores</div><hr>
-<div class="menu-item">Kits Presente</div><hr>
-<div class="menu-item">Embalagens</div><hr>
-<div class="menu-item">Sabonetes</div>
-</div>
-
-</div>
-
-<footer>
-
-<!-- Instagram -->
-<a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-
-<!-- WhatsApp -->
-<a href="#"><svg viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-15.5 5.5L3 21l4-1.5A8.5 8.5 0 1 1 20 11.5z"/></svg></a>
-
-<!-- Email -->
-<a href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></a>
-
-<!-- FACEBOOK -->
-<a href="#"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-4 2-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
-
-</footer>
-<script>
-// MENU
-const menu = document.getElementById("sideMenu");
-const btn = document.getElementById("menuBtn");
-
-if(btn && menu){
-  btn.onclick = () => {
-    menu.style.left = "0";
-  }
-}
-
-function closeMenu(){
-  if(menu){
-    menu.style.left = "-100%";
-  }
-}
-
-// ABRIR / FECHAR CARRINHO
-function openCart(){
-  document.getElementById("cartPanel").style.right = "0px";
-}
-
-function closeCart(){
-  document.getElementById("cartPanel").style.right = "-320px";
-}
-
-// ESTADO DO CARRINHO
-let cart = [];
-
-// ADICIONAR ITEM
-function addToCart(name, price, el){
-
-  let card = el.closest(".product-card");
-  let qtyEl = card.querySelector(".qty-value");
-
-  let qty = qtyEl ? parseInt(qtyEl.innerText) : 1;
-
-  let existing = cart.find(item => item.name === name);
-
-  if(existing){
-    existing.qty += qty;
-  } else {
-    cart.push({
-      name: name,
-      price: price,
-      qty: qty,
-      selected: true
-    });
-  }
-
-  updateCart();
-  updateCartCount();
-  showToast(name);
-
-  // feedback visual
-  let original = el.innerHTML;
-
-  el.innerHTML = "✓";
-  el.style.background = "#3F4A33";
-
-  setTimeout(()=>{
-    el.innerHTML = original;
-    el.style.background = "transparent";
-  }, 800);
-}
-
-// ATUALIZAR CARRINHO
-function updateCart(){
-  const container = document.getElementById("cartItems");
-  container.innerHTML = "";
-
-  let total = 0;
-
-  // carrinho vazio
-  if(cart.length === 0){
-    container.innerHTML = `
-      <div class="empty-cart">
-        Seu carrinho está vazio
-      </div>
-    `;
-    updateCartCount();
-    return;
-  }
-
-  // render itens
-  cart.forEach((item, index) => {
-
-    if(item.selected){
-      total += item.price * item.qty;
-    }
-
-    container.innerHTML += `
-  
-      
-      <div class="cart-item">
-
-        <div class="left">
-          <div class="select-circle ${item.selected ? 'active' : ''}" 
-               onclick="toggleSelect(${index})"></div>
-        </div>
-
-        <div class="middle" style="${!item.selected ? 'opacity:0.4;' : ''}">
-          <strong>${item.name}</strong>
-          <div>${item.qty}x R$ ${item.price}</div>
-          <div>Total: R$ ${(item.qty * item.price).toFixed(2)}</div>
-
-          <div class="qty-cart">
-            <div onclick="changeQty(${index}, -1)">-</div>
-            <div>${item.qty}</div>
-            <div onclick="changeQty(${index}, 1)">+</div>
-          </div>
-        </div>
-
-        <div class="trash" onclick="removeItem(${index})">
-          <svg viewBox="0 0 24 24">
-            <path d="M3 6h18"/>
-            <path d="M8 6v-2h8v2"/>
-            <path d="M19 6l-1 14H6L5 6"/>
-          </svg>
-        </div>
-
-      </div>
-    `;
-  });
-
-  // resumo
-  let pixTotal = total * 0.9;
-
-  container.innerHTML += `
-    <div class="cart-summary">
-
-      <div class="line">
-        <span>Total</span>
-        <span>R$ ${total.toFixed(2)}</span>
-      </div>
-
-      <div class="line pix">
-        <span>Pix (-10%)</span>
-        <span>R$ ${pixTotal.toFixed(2)}</span>
-      </div>
-
-      <button class="checkout" onclick="checkoutWhatsApp()">Finalizar compra</button>
-
-    </div>
-  `;
-}
-
-// SELECIONAR ITEM
-function toggleSelect(index){
-  cart[index].selected = !cart[index].selected;
-  updateCart();
-}
-
-// ALTERAR QUANTIDADE
-function changeQty(index, change){
-  if(cart[index].qty + change <= 0){
-    cart.splice(index, 1);
-  } else {
-    cart[index].qty += change;
-  }
-  updateCart();
-  updateCartCount();
-}
-
-// REMOVER ITEM
-function removeItem(index){
-  cart.splice(index, 1);
-  updateCart();
-  updateCartCount();
-}
-
-// CONTADOR
-function updateCartCount(){
-  const count = document.getElementById("cartCount");
-
-  let total = 0;
-  cart.forEach(item => total += item.qty);
-
-  if(total > 0){
-    count.style.display = "block";
-    count.innerText = total;
-  } else {
-    count.style.display = "none";
-  }
-}
-
-// TOAST
-function showToast(name){
-  const toast = document.getElementById("toast");
-
-  toast.innerText = `${name} adicionado ao carrinho`;
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  }, 2000);
-}
-
-// CHECKOUT WHATSAPP
-function checkoutWhatsApp(){
-
-  if(cart.length === 0){
-    alert("Seu carrinho está vazio");
-    return;
-  }
-
-  let message = "🕯️ *Pedido - Casa Trívia*%0A%0A";
-
-  let total = 0;
-
-  cart.forEach(item => {
-    if(item.selected){
-      message += `• ${item.name} (${item.qty}x) - R$ ${item.price * item.qty}%0A`;
-      total += item.price * item.qty;
-    }
-  });
-
-  message += `%0A💰 Total: R$ ${total.toFixed(2)}`;
-  message += `%0A💳 Pix: R$ ${(total * 0.9).toFixed(2)}`;
-
-  const phone = "5599999999999"; // 🔥 TROQUE PELO SEU NÚMERO
-
-  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
-}
-
-// CARROSSEL
-document.querySelectorAll(".products-carousel").forEach((carousel) => {
-
-  const track = carousel.querySelector(".products-track");
-  const dotsContainer = carousel.querySelector(".dots");
-
-  const cards = track.children;
-  const total = cards.length;
-
-  for(let i = 0; i < total; i++){
-    let dot = document.createElement("button");
-    if(i === 0) dot.classList.add("active");
-
-    dot.onclick = () => {
-      track.scrollTo({
-        left: cards[i].offsetLeft,
-        behavior: "smooth"
-      });
-    };
-
-    dotsContainer.appendChild(dot);
-  }
-
-  const dots = dotsContainer.querySelectorAll("button");
-
-  track.addEventListener("scroll", () => {
-   let cardWidth = cards[0].offsetWidth + 20; // gap
-let index = Math.round(track.scrollLeft / cardWidth);
-
-    dots.forEach(d => d.classList.remove("active"));
-    if(dots[index]) dots[index].classList.add("active");
-  });
-
-});
-  function inc(el){
-  let container = el.parentElement;
-  let valueEl = container.querySelector(".qty-value");
-
-  let value = parseInt(valueEl.innerText);
-  valueEl.innerText = value + 1;
-}
-
-function dec(el){
-  let container = el.parentElement;
-  let valueEl = container.querySelector(".qty-value");
-
-  let value = parseInt(valueEl.innerText);
-  if(value > 1){
-    valueEl.innerText = value - 1;
-  }
-}
-  const express = require("express");
-const Stripe = require("stripe");
-const cors = require("cors");
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-const stripe = Stripe("SUA_CHAVE_SECRETA_AQUI");
-
-// ROTA DE CHECKOUT
-app.post("/create-checkout", async (req, res) => {
-  try {
-    const { cart } = req.body;
-
-    const line_items = cart.map(item => ({
-      price_data: {
-        currency: "brl",
-        product_data: {
-          name: item.name,
-        },
-        unit_amount: item.price * 100,
-      },
-      quantity: item.qty,
-    }));
-
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card", "pix"],
-      line_items,
-      mode: "payment",
-      success_url: "http://localhost:5500/sucesso.html",
-      cancel_url: "http://localhost:5500/cancelado.html",
-    });
-
-    res.json({ url: session.url });
-
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("Erro no checkout");
-  }
-});
-
-app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
-</script>
-            
-<div id="toast"></div>
-
-<a href="https://wa.me/5512988890464?text=Olá,%20vim%20pelo%20site%20da%20Casa%20Trívia%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20produtos." 
-   target="_blank" 
-   class="whatsapp-float">
-
-  <svg viewBox="0 0 32 32">
-    <path d="M16 .5C7.5.5.5 7.3.5 15.7c0 2.7.7 5.2 2 7.4L.5 31.5l8.6-1.9c2.1 1.1 4.5 1.7 6.9 1.7 8.5 0 15.5-6.8 15.5-15.2C31.5 7.3 24.5.5 16 .5zm0 27.6c-2.2 0-4.3-.6-6.1-1.7l-.4-.2-5.1 1.1 1.1-4.9-.3-.4c-1.3-2-2-4.2-2-6.6 0-6.9 5.8-12.5 12.9-12.5s12.9 5.6 12.9 12.5-5.8 12.5-12.9 12.5zm7-9.4c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.9.2-.3.4-1 1.2-1.3 1.4-.2.2-.5.3-.9.1-.4-.2-1.8-.6-3.4-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7 0-.2-.9-2.2-1.2-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 3s1.3 3.5 1.5 3.7c.2.2 2.6 4 6.4 5.4.9.3 1.6.5 2.1.6.9.1 1.7.1 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+  <svg viewBox="0 0 24 24">
+    <path d="M20 11.5a8.5 8.5 0 0 1-15.5 5.5L3 21l4-1.5A8.5 8.5 0 1 1 20 11.5z"/>
   </svg>
 
 </a>
-  
-  
+
+
+<!-- ================= SCRIPT ================= -->
+<script>
+
+/* ================= CARRINHO ================= */
+const Cart = {
+
+  items: [],
+
+  open(){
+    console.log("Abrir carrinho futuramente");
+  },
+
+  add(name, price, el){
+
+    let card = el.closest(".product-card");
+    let qty = parseInt(card.querySelector(".qty-value").innerText);
+
+    let existing = this.items.find(i => i.name === name);
+
+    if(existing){
+      existing.qty += qty;
+    } else {
+      this.items.push({ name, price, qty });
+    }
+
+    this.updateCount();
+
+    console.log(this.items);
+  },
+
+  updateCount(){
+
+    let total = 0;
+
+    this.items.forEach(i => total += i.qty);
+
+    document.getElementById("cartCount").innerText = total;
+
+  }
+
+};
+
+
+/* ================= QUANTIDADE ================= */
+const Qty = {
+
+  inc(el){
+    let valueEl = el.parentElement.querySelector(".qty-value");
+    valueEl.innerText = parseInt(valueEl.innerText) + 1;
+  },
+
+  dec(el){
+    let valueEl = el.parentElement.querySelector(".qty-value");
+    let val = parseInt(valueEl.innerText);
+
+    if(val > 1){
+      valueEl.innerText = val - 1;
+    }
+  }
+
+};
+
+</script>
+
 </body>
 </html>
